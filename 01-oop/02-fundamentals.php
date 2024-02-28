@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,7 +18,7 @@
 
             h2 {
                 margin: 0;
-            } 
+            }
 
             ul {
                 padding: 0;
@@ -37,6 +38,7 @@
                 justify-content: space-between;
                 gap: 1rem;
                 width: 100%;
+
                 button {
                     border: 2px solid #fff6;
                     background-color: #994bde;
@@ -51,15 +53,21 @@
         }
     </style>
 </head>
+
 <body>
     <nav class="controls">
         <a href="index.html">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z"/></svg>    
+            <svg xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                <path fill="#ffffff"
+                    d="M512 256A256 256 0 1 0 0 256a256 256 0 1 0 512 0zM231 127c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-71 71L376 232c13.3 0 24 10.7 24 24s-10.7 24-24 24l-182.1 0 71 71c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L119 273c-9.4-9.4-9.4-24.6 0-33.9L231 127z" />
+            </svg>
         </a>
     </nav>
     <main>
         <h1>02- Fundamentals</h1>
         <section>
+
             <?php
                 
                 class Runner {
@@ -76,15 +84,15 @@
                     }
 
                     public function run() {
-                        return '<img src="./corriendo" alt="">';
+                        return '<img src="./img/corriendo.gif" alt="">';
                     }
 
                     public function stop() {
-                        return "🧎🏻‍♂️";
+                        return '<img src="./img/stop.png" alt="">';
                     }
 
                     public function jump() {
-                        return "🚶🏻‍♂️";
+                        return '<img src="./img/saltando.gif" alt="">';
                     }
                 }
 
@@ -93,8 +101,8 @@
             ?>
             <h2>Class Runner</h2>
             <ul>
-                <li>Name:   <?=$runner->name ?></li>
-                <li>Age:    <?=$runner->age ?></li>
+                <li>Name: <?=$runner->name ?></li>
+                <li>Age: <?=$runner->age ?></li>
                 <li>Number: <?=$runner->number ?></li>
             </ul>
             <figure>
@@ -110,19 +118,19 @@
                     else
                     echo $runner->jump();
 
-                }
-                    
-                    
-                    
-                   
+                } else {
+                    echo $runner->stop();
+                } 
+
                 ?>
             </figure>
             <form action="" method="post">
-                <button> Run </button>
-                <button> Stop </button>
-                <button> Jump </button>
+                <button name="run"> Run </button>
+                <button name="stop"> Stop </button>
+                <button name="jump"> Jump </button>
             </form>
         </section>
     </main>
 </body>
+
 </html>
