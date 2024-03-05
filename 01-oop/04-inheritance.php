@@ -20,6 +20,32 @@
                 margin: 0;
             }
 
+            div.pks {
+                display: flex;
+                gap: 10px;
+                div.pokemon {
+                    border: 1px dotted #fff;
+                    align-items: center;
+                    flex-direction: column;
+                    gap: 10px;
+                    display: flex;
+                    padding: 10px;
+                    transition: all 0.5s ease-in; 
+                    filter: blur(2px) grayscale(1);
+                    img {
+                        height: 100px;
+                        object-fit: cover;
+                        width: 100px;
+                    }
+                }
+                div.pokemon:hover {
+                    transform: scale(1.1);
+                    filter: blur(0) grayscale(0);
+                }
+            }
+
+            
+
         }
     </style>
 </head>
@@ -45,13 +71,15 @@
             protected $name;
             protected $type;
             protected $healt;
+            protected $img;
         
 
             //Methods
-            public function __construct($name,$type,$healt){
-                $this->name =$name;
-                $this->type =$type;
-                $this->healt =$healt;
+            public function __construct($name,$type,$healt, $img){
+                $this->name = $name;
+                $this->type = $type;
+                $this->healt = $healt;
+                $this->img = $img;
             }
             public function attack (){
                 return "Attack";
@@ -60,28 +88,34 @@
                 return "Defense";
             }
             public function show(){
-                return $this->name; 
+                return "<div class='pokemon'>" . $this->name . "<img src='".$this->img."'>" . $this->type . $this->healt . "</div>" ; 
             }
         }
-        class evolve extends Pokemon {
-            public function levelUp($name,$type,$healt) {
-                $this->name =$name;
-                $this->type =$type;
-                $this->healt =$healt;
+        class Evolve extends Pokemon {
+            public function levelUp($name,$type,$healt,$img) {
+                parent::__construct($name,$type,$healt,$img);
+                }
             }
-        }
-        $pk = new evolve('charmander', 'fire', 150);
-         echo $pk -> name;
-        echo $pk -> defense();
+                
+        ?>
+         <h2>Evolve your Pokemon</h2>
+
+         <div class="pks"> 
+            <?php
+
+        
+
+        $pk = new Evolve('charmander', 'fire', 150,'img/verde.jpg');
+         echo $pk ->show();
+        $pk -> levelUp('charmeleon', 'fire', 250,'img/amarillo.jpg');
         echo $pk->show();
-        $pk -> levelUp('charmeleon', 'fire', 250);
-        echo $pk->show
+        $pk -> levelUp('charizard', 'fire', 250,'img/gris.jpg');
+        echo $pk->show();
+
 ?>
-            <h2>Evolve your Pokemon</h2>
-
-
-
-        </section>
+ </div>
+            
+</section>
     </main>
 </body>
 
