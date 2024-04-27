@@ -1,0 +1,74 @@
+:root {
+    --ff-heading: "Russo One", sans-serif;
+    --ff-body: "Poppins", sans-serif;
+    --color-first: #23234B;
+    --color-second: #06cfce;
+    --color-third: #d3167c;
+    --color-fourth: #ececed;
+}
+
+/* General */
+
+body {
+    background-color: var(--color-first);
+    font-family: var(-ff-body);
+    font-weight: 100;
+    font-style: normal;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    main {
+        background: url(../images/bg-main.png)no-repeat center;
+        height: 800px;
+        overflow: hidden;
+        width: 400px;
+    }
+}
+
+main.welcome {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 2rem;
+    }
+
+    section.slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 2.5rem;
+
+    }
+
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a:is(:link, :visited) {
+            background: url(../images/btn.png) no-repeat center;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 7rem;
+            transition: all 0.4s ease-in;
+            width: 300px;
+
+        }
+
+        a:is(:hover) {
+            background: url(../images/btn-hover.png) no-repeat center;
+            transform: scale(1.02) translateY(-5px);
+        }
+
+        a:is(:active) {
+            background: url(../images/btn-active.png) no-repeat center;
+            transform: scale(1.02) translateY(-5px);
+        }
+
+    }
+}
