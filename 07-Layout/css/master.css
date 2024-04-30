@@ -7,8 +7,6 @@
     --color-fourth: #ececed;
 }
 
-/* General */
-
 body {
     background-color: var(--color-first);
     font-family: var(-ff-body);
@@ -32,43 +30,122 @@ main.welcome {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-block: 2rem;
+        margin-block: 2.2rem;
     }
 
-    section.slider {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 2.5rem;
-
-    }
-
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        a:is(:link, :visited) {
-            background: url(../images/btn.png) no-repeat center;
-            height: 60px;
+    section.owl-carousel {
+        div.owl-item {
             display: flex;
             justify-content: center;
-            align-items: center;
-            margin-top: 7rem;
-            transition: all 0.4s ease-in;
-            width: 300px;
+
+            img {
+                height: 306px;
+                width: 306px;
+                ;
+            }
 
         }
 
-        a:is(:hover) {
-            background: url(../images/btn-hover.png) no-repeat center;
-            transform: scale(1.02) translateY(-5px);
-        }
+        div.owl-nav {
+            position: relative;
+            top: -180px;
+            display: flex;
+            justify-content: space-between;
 
-        a:is(:active) {
-            background: url(../images/btn-active.png) no-repeat center;
-            transform: scale(1.02) translateY(-5px);
+            button {
+                transition: transform 0.2s ease-in;
+
+                span {
+                    border: 2px solid red;
+                    display: flex;
+                    height: 44px;
+                    width: 34px;
+                    text-indent: -9999px;
+                }
+            }
+
+            button:is(:hover) {
+                background-color: transparent;
+            }
+
+            button.owl-prev {
+                span {
+                    background: url(../images/btn-prev.png) no-repeat center;
+                }
+            }
+
+            button.owl-prev:hover {
+                transform: scale(1.1) translateX(-4px);
+            }
+
+            button.owl-next {
+                span {
+                    background: url(../images/btn-next.png) no-repeat center;
+                }
+            }
+
+            button.owl-next:hover {
+                transform: scale(1.1) translateX(-4px);
+            }
+
+        }
+        div.owl-dots{
+            position: relative;
+            border: 2px solid red;
+            top: -46px;
+            button{
+                transition:transform 0.2s ease-in;
+
+            }
+            button:is(:hover){
+                transform:scale(1.1);
+            }
+            button.owl-dot{
+                span{
+                    background-color: var(--color-second);
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+            button.owl-dot.active,
+            button.owl-dot:is(:hover){
+                span{
+                    background-color: var(--color-third);
+                    height: 16px;
+                    width: 16px;
+                }
+            }
+
         }
 
     }
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a:is(:link, :visited) {
+        background: url(../images/btn.png) no-repeat center;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1.2rem;
+        transition: all 0.4s ease-in;
+        width: 300px;
+
+    }
+
+    a:is(:hover) {
+        background: url(../images/btn-hover.png) no-repeat center;
+        transform: scale(1.02) translateY(-5px);
+    }
+
+    a:is(:active) {
+        background: url(../images/btn-active.png) no-repeat center;
+    }
+
+}
 }

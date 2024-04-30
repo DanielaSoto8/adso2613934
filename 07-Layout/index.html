@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="./css/fonts.css">
-    <link rel="stylesheet" href="./css/master.css">
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
-    <link rel="stylesheet" href="./css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
 </head>
 
 <body>
@@ -17,7 +17,9 @@
         <header>
             <img src="images/logo-welcome.png" alt="logo">
         </header>
-        <section class="slider">
+        <section class=" owl-carousel owl-theme">
+            <img src="images/slide01.png" alt="slide01">
+            <img src="images/slide01.png" alt="slide01">
             <img src="images/slide01.png" alt="slide01">
         </section>
         <footer>
@@ -26,9 +28,22 @@
             </a>
         </footer>
     </main>
-   <script src="js/jquery-3.7.1.min.js"></script>
-   <script src="js/owl.carousel.min.js"></script>
-   $ (Document)
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            responsive: {
+                0: {
+                    items: 1
+                }
+            }  
+            })
+        }) 
+    </script>
 </body>
 
 </html>
