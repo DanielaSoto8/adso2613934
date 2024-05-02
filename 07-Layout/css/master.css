@@ -56,7 +56,6 @@ main.welcome {
                 transition: transform 0.2s ease-in;
 
                 span {
-                    border: 2px solid rgb(219, 207, 207);
                     display: flex;
                     height: 44px;
                     width: 34px;
@@ -91,7 +90,6 @@ main.welcome {
         }
         div.owl-dots{
             position: relative;
-            border: 2px solid rgb(230, 221, 221);
             top: -46px;
             button{
                 transition:transform 0.2s ease-in;
