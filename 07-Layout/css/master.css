@@ -39,9 +39,8 @@ main.welcome {
             justify-content: center;
 
             img {
-                height: 306px;
-                width: 306px;
-                ;
+                height: 350px;
+                width: 250px
             }
 
         }
@@ -146,4 +145,25 @@ footer {
     }
 
 }
+}
+main.catalogue {
+    header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-block: 2.2rem;
+    }
+
+    section.owl-carousel {
+        div.owl-item {
+            display: flex;
+            justify-content: center;
+
+            img {
+                height: 250px;
+                width: 150px
+            }
+
+        }
+    }
 }
