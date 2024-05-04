@@ -22,6 +22,39 @@ body {
         height: 800px;
         overflow: hidden;
         width: 400px;
+        header{
+            svg.btn-burger {
+                cursor: pointer;
+                transition: transform 400ms;
+                user-select: none;
+                position: relative;
+                z-index: 3;
+                .line {
+                    fill:none;
+                    transition: stroke-dasharray 400ms, 
+                                stroke-dashoffset 400ms;
+                    stroke: var(--color-fourth);
+                    stroke-width: 4;
+                    stroke-linecap: round;
+                }
+                .top {
+                  stroke-dasharray: 40 121;
+                }
+                .bottom {
+                  stroke-dasharray: 40 121;
+                }
+              }
+              svg.btn-burger.active {
+                transform: rotate(45deg);
+                .top {
+                  stroke-dashoffset: -68px;
+                }
+                .bottom {
+                  stroke-dashoffset: -68px;
+                }
+              }
+           
+        }
     }
 }
 
@@ -166,4 +199,25 @@ main.catalogue {
 
         }
     }
+}
+/*------------------------------*/
+/*--------CATALOGUE----------------------*/
+main.catalogue{
+    scrollbar-width: none;
+    overflow:scroll;
+    header{
+        margin-top: 1.4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        a.btn-back:is(:link,:visited){
+            transition: transform 0.4s ease-in;
+        }
+        a.btn.back:is(:hover){
+            transform: translateX(-4px);
+        }
+
+    }
+
+
 }
