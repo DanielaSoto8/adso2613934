@@ -199,7 +199,7 @@ main.welcome {
             }
 
             button.owl-next:hover {
-                transform: scale(1.1) translateX(-4px);
+                transform: scale(1.1) translateX(-4);
             }
 
         }
@@ -348,8 +348,8 @@ main.catalogue {
             justify-content: center;
             img.slide{
                 object-fit: contain;
-                height: 140px;
-                width: 140px;
+                height: 110px;
+                width: 110px;
             }
         }
 
