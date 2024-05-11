@@ -34,43 +34,60 @@ body {
         width: 400px;
 
         header {
-            position: relative;
-            z-index: 3;
+            margin-top: 1.4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
 
-            svg.btn-burger {
-                cursor: pointer;
-                transition: transform 400ms;
-                user-select: none;
+
+            header {
                 position: relative;
+                z-index: 3;
 
-                .line {
-                    fill: none;
-                    transition: stroke-dasharray 400ms,
-                        stroke-dashoffset 400ms;
-                    stroke: var(--txt-color);
-                    stroke-width: 4;
-                    stroke-linecap: round;
+                svg.btn-burger {
+                    cursor: pointer;
+                    transition: transform 400ms;
+                    user-select: none;
+                    position: relative;
+
+                    .line {
+                        fill: none;
+                        transition: stroke-dasharray 400ms,
+                            stroke-dashoffset 400ms;
+                        stroke: var(--txt-color);
+                        stroke-width: 4;
+                        stroke-linecap: round;
+                    }
+
+                    .top {
+                        stroke-dasharray: 40 121;
+                    }
+
+                    .bottom {
+                        stroke-dasharray: 40 121;
+                    }
                 }
 
-                .top {
-                    stroke-dasharray: 40 121;
+                svg.btn-burger.active {
+                    transform: rotate(45deg);
+
+                    .top {
+                        stroke-dashoffset: -68px;
+                    }
+
+                    .bottom {
+                        stroke-dashoffset: -68px;
+                    }
                 }
 
-                .bottom {
-                    stroke-dasharray: 40 121;
-                }
-            }
-
-            svg.btn-burger.active {
-                transform: rotate(45deg);
-
-                .top {
-                    stroke-dashoffset: -68px;
+                a.btn-back:is(:link, :visited) {
+                    transition: transform 0.4s ease-in;
                 }
 
-                .bottom {
-                    stroke-dashoffset: -68px;
+                a.btn.back:is(:hover) {
+                    transform: translateX(-4px);
                 }
+
             }
 
         }
@@ -100,7 +117,7 @@ body {
             opacity: 1;
             transform: translateY(0%);
         }
-        
+
         menu {
             display: flex;
             flex-direction: column;
@@ -132,6 +149,36 @@ body {
             a:is(:active) {
                 background: url(../images/bnt-active.png) no-repeat center;
             }
+        }
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: var(--ff-heading);
+    
+            a:is(:link, :visited) {
+                background: url(../images/btn.png) no-repeat center;
+                height: 60px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 3rem;
+                transition: all 0.4s ease-in;
+                width: 300px;
+                color: var(--txt-color);
+                font-size: 2rem;
+    
+            }
+    
+            a:is(:hover) {
+                background: url(../images/btn-hover.png) no-repeat center;
+                transform: scale(1.02) translateY(-5px);
+            }
+    
+            a:is(:active) {
+                background: url(../images/btn-active.png) no-repeat center;
+            }
+    
         }
     }
 }
@@ -239,102 +286,64 @@ main.welcome {
     }
 
 
-    footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-family: var(--ff-heading);
-
-        a:is(:link, :visited) {
-            background: url(../images/btn.png) no-repeat center;
-            height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 3rem;
-            transition: all 0.4s ease-in;
-            width: 300px;
-            color: var(--txt-color);
-            font-size: 2rem;
-
-        }
-
-        a:is(:hover) {
-            background: url(../images/btn-hover.png) no-repeat center;
-            transform: scale(1.02) translateY(-5px);
-        }
-
-        a:is(:active) {
-            background: url(../images/btn-active.png) no-repeat center;
-        }
-
-    }
+    
 }
 
 
 /*------------------------------*/
 /*--------CATALOGUE----------------------*/
 main.catalogue {
-    
-    
 
-    header {
-        margin-top: 1.4rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
 
-        a.btn-back:is(:link, :visited) {
-            transition: transform 0.4s ease-in;
-        }
 
-        a.btn.back:is(:hover) {
-            transform: translateX(-4px);
-        }
 
-    }
- 
-    section.scroll{
+
+    section.scroll {
         scrollbar-width: none;
         overflow: scroll;
         height: 640px;
-        form{
+
+        form {
             display: flex;
             justify-content: center;
             align-items: center;
-           margin-bottom: 2rem;
+            margin-bottom: 2rem;
+
             input {
                 border: none;
                 background: url(../images/bg-main.png) no-repeat center,
-                            url(../images/bg-main.png) no-repeat 250px center;
-                            color: var(--color-first);
-                            font-weight: 400;
-                            font-size: 20px;
-                            height: 60px;
-                            outline: none;
-                            text-indent: 16px;
-                            width: 298px;
-                            
+                    url(../images/bg-main.png) no-repeat 250px center;
+                color: var(--color-first);
+                font-weight: 400;
+                font-size: 20px;
+                height: 60px;
+                outline: none;
+                text-indent: 16px;
+                width: 298px;
+
                 outline: none;
                 width: 298px;
-                &::placeholder{
+
+                &::placeholder {
                     opacity: 0.7;
                     color: var(--color-first);
                 }
             }
         }
     }
-    article{
-        h2{
+
+    article {
+        h2 {
             display: flex;
             justify-content: center;
             font-family: var(--ff-heading);
-           font-size: 20px;
+            font-size: 20px;
             align-items: center;
             color: var(--color-first);
             gap: 0.6rem;
             margin-bottom: 1rem;
         }
+
         a:is(:link, :visited) {
             img {
                 height: 48px;
@@ -342,11 +351,13 @@ main.catalogue {
             }
         }
     }
+
     div.owl-carousel {
         div.owl-item {
             display: flex;
             justify-content: center;
-            img.slide{
+
+            img.slide {
                 object-fit: contain;
                 height: 110px;
                 width: 110px;
@@ -395,5 +406,58 @@ main.catalogue {
             }
         }
 
+    }
+}
+
+/*------------------------------*/
+/*--------VIEW -GAME ----------------------*/
+main.view-game {
+    header {
+        margin-bottom: 1rem;
+        h1 {
+            font-family: var(--ff-heading);
+            font-size: 24px;
+            color: var(--color-first);
+        }
+    }
+    section{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        article{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            div.row{
+                display: flex;
+                align-items: center;
+                border: 2px solid red;
+                gap: 1rem;
+                margin-bottom: 0.8rem;
+                justify-content: space-between;
+   
+                div.colum{
+                    h4{
+                        font-family: var(--ff-heading);
+                        color: var(--color-first);
+                        font-size: 20px;
+                    }
+                    p{
+                    font-family: var(--ff-body);
+                    color: var(--color-first);
+                    font-size: 20px;
+                    line-height: 1.2rem;
+                    text-align: justify;
+                    &.price{
+                        color:var(--color-first);
+                        font-weight: 400;
+                        font-style: 36px;
+                    }
+                }
+                }
+            }
+        }
     }
 }
