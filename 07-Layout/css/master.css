@@ -150,12 +150,13 @@ body {
                 background: url(../images/bnt-active.png) no-repeat center;
             }
         }
+
         footer {
             display: flex;
             justify-content: center;
             align-items: center;
             font-family: var(--ff-heading);
-    
+
             a:is(:link, :visited) {
                 background: url(../images/btn.png) no-repeat center;
                 height: 60px;
@@ -167,18 +168,18 @@ body {
                 width: 300px;
                 color: var(--txt-color);
                 font-size: 2rem;
-    
+
             }
-    
+
             a:is(:hover) {
                 background: url(../images/btn-hover.png) no-repeat center;
                 transform: scale(1.02) translateY(-5px);
             }
-    
+
             a:is(:active) {
                 background: url(../images/btn-active.png) no-repeat center;
             }
-    
+
         }
     }
 }
@@ -286,7 +287,7 @@ main.welcome {
     }
 
 
-    
+
 }
 
 
@@ -414,50 +415,167 @@ main.catalogue {
 main.view-game {
     header {
         margin-bottom: 1rem;
+
         h1 {
             font-family: var(--ff-heading);
             font-size: 24px;
             color: var(--color-first);
         }
     }
-    section{
+
+    section {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 1rem;
         justify-content: center;
-        article{
+
+        article {
             display: flex;
             flex-direction: column;
             gap: 1rem;
-            div.row{
+
+            div.row {
                 display: flex;
                 align-items: center;
                 border: 2px solid red;
                 gap: 1rem;
                 margin-bottom: 0.8rem;
                 justify-content: space-between;
-   
-                div.colum{
-                    h4{
+
+                div.colum {
+                    h4 {
                         font-family: var(--ff-heading);
                         color: var(--color-first);
                         font-size: 20px;
                     }
-                    p{
-                    font-family: var(--ff-body);
-                    color: var(--color-first);
-                    font-size: 20px;
-                    line-height: 1.2rem;
-                    text-align: justify;
-                    &.price{
-                        color:var(--color-first);
-                        font-weight: 400;
-                        font-style: 36px;
+
+                    p {
+                        font-family: var(--ff-body);
+                        color: var(--color-first);
+                        font-size: 20px;
+                        line-height: 1.2rem;
+                        text-align: justify;
+
+                        &.price {
+                            color: var(--color-first);
+                            font-weight: 400;
+                            font-style: 36px;
+                        }
                     }
-                }
                 }
             }
         }
     }
+}
+
+/*------------------------------*/
+/*--------LOGIN----------------------*/
+main.login
+main.register {
+    header {
+        .btn-back {
+            visibility: hidden;
+            pointer-events: none;
+        }
+    }
+
+    section {
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+
+            div.form-group {
+
+                border: 2px solid red;
+                width: 300px;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+                flex-direction: column;
+
+                position: relative;
+                label {
+                    display: flex;
+                    color: var(--color-first);
+                    font-family: var(--ff-heading);
+                    align-items: center;
+                    gap: 0.6rem;
+                    font-size: 20px;
+                }
+
+                input {
+                    border: none;
+                    background: url(../images/btn.png) no-repeat center;
+                    height: 60px;
+                    outline: none;
+                    width: 300px;
+                    font-size: 18px;
+                    font-weight: 300;
+                    color: var(--color-first);
+                    text-indent: 1rem;
+                    height: 60px;
+                    width: 300px;
+
+                    &::placeholder {
+                        opacity: 0.6;
+                        color: var(--color-first);
+                    }
+                }
+
+                img.ico-eye {
+                    cursor: pointer;
+                    position: absolute;
+                    top: 50px;
+                    right: 20px;
+
+                }
+
+                button {
+                    cursor: pointer;
+                    border: none;
+                    outline: none;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-family: var(--ff-heading);
+
+                    button:is(:link, :visited) {
+                        background: url(../images/btn.png) no-repeat center;
+                        height: 60px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-top: 3rem;
+                        transition: all 0.4s ease-in;
+                        width: 300px;
+                        color: var(--txt-color);
+                        font-size: 2rem;
+
+                    }
+
+                    button:is(:hover) {
+                        background: url(../images/btn-hover.png) no-repeat center;
+                        transform: scale(1.02) translateY(-5px);
+                    }
+
+                    button:is(:active) {
+                        background: url(../images/btn-active.png) no-repeat center;
+                    }
+                    .mask {
+                        mask-image: url(../images/mask.png);
+                        mask-repeat: no-repeat;
+                        mask-position: center top;
+                        object-fit: contain;
+                    
+                    }
+
+
+                }
+            }
+        }
+    }
+
 }
