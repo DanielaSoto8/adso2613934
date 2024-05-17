@@ -569,6 +569,9 @@ main.register {
                         mask-repeat: no-repeat;
                         mask-position: center top;
                         object-fit: contain;
+                        align-self: center;
+                        height: 200px;
+                        width: 200px;
                     
                     }
 
