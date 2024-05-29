@@ -14,10 +14,8 @@
 <body>
     <main class="login">
         <header>
-            <a href="javascript:;" class="btn-back">
-                <img src="images/btn-back.svg" alt="Back">
-            </a>
-            <img src="images/Login.png" alt="">
+            <div></div>
+            <img src="images/Login.png" alt="" class="btn-login">
             <svg class="btn-burger" viewBox="0 0 100 100" width="80">
                 <path class="line top"
                     d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
@@ -28,40 +26,45 @@
 
         </header>
         <nav class="nav">
-            <img src="images/title-menu.svg" alt="Menu" class="title-menu">
             <menu>
-                <a href="login.html"><img src="images/ico-login.svg" alt="Login">Login</a>
-                <a href="register.html"><img src="images/ico-register.svg" alt="Register">Register</a>
-                <a href="catalogue.html"><img src="images/ico-catalogue.svg" alt="Catalogue">Catalogue</a>
+                <a href="login.html"><img src="images/login-ico.png" alt="Login" class="menu-items-img">
+                    <p class="letter">Login</p>
+                </a>
+                <a href="register.html"><img src="images/login-ico.png" alt="Register" class="menu-items-img">
+                    <p class="letter">Register</p>
+                </a>
+                <a href="catalogue.html"><img src="images/login-ico.png" alt="Catalogue" class="menu-items-img">
+                    <p class="letter">Catalogue</p>
+                </a>
             </menu>
         </nav>
         <section>
 
-            <form action="dasboard.html" method="get">
+            <form action="dashboard.html" method="get">
                 <div class="form-group">
                     <label>
-                        <img src="images/ico-email.svg" alt="email">
-                        email:
+                        <img src="images/ico-email.png" alt="email">
+                        <p class="letter1">Email</p>
                     </label>
 
                     <input type="email" name="email" placeholder="danyvalencia@.com">
                 </div>
                 <div class="form-group">
                     <label>
-                        <img src="|images/ico-password.svg" alt="paswords">
-                        Password:
+                        <img src="images/ico-password.png" alt="paswords">
+                        <p class="letter1">password</p>
                     </label>
-                    <img class="ico-eye" src="images/ico-eye.svg" alt="Eye">
+                    <img class="ico-eye" src="images/hide-password.png" alt="Eye">
 
                     <input type="password" name="password" placeholder="danyvalencia">
 
                 </div>
                 <div class="form-group">
-                    <button type="submit">
-                        <img src="images/content-btn-login.svg" alt="login">
-
+                    <button type="submit" value="Login">
+                        <img src="images/btn-login.svg" alt="login">
                     </button>
-                    <a href="">Forgot yoy password</a>
+                   <img src="images/Forgot-your-password.svg" class="forgot-your-password">
+                   
 
                 </div>
             </form>
@@ -82,8 +85,8 @@
                 !$togglepass ? $(this).next().attr('type', 'text')
                             : $(this).next().attr('type', 'password')
 
-                !$togglepass ? $(this).attr('src', 'images/ico-eye.svg')
-                            : $(this).attr('src', 'images/ico-eye-off.svg')
+                !$togglepass ? $(this).attr('src','images/ico-eye.svg')
+                            : $(this).attr('src', 'images/hide-password.png')
 
 
 

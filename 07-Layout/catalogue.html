@@ -26,66 +26,63 @@
                 <path class="line bottom"
                     d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
-
         </header>
         <nav class="nav">
-            <img src="images/title-menu.svg" alt="Menu" class="title-menu">
             <menu>
-                <a href="login.html"><img src="images/ico-login.svg" alt="Login">Login</a>
-                <a href="register.html"><img src="images/ico-register.svg" alt="Register">Register</a>
-                <a href="catalogue.html"><img src="images/ico-catalogue.svg" alt="Catalogue">Catalogue</a>
+                <a href="login.html"><img src="images/login-ico.png" alt="Login" class="menu-items-img">
+                    <p class="letter">Login</p>
+                </a>
+                <a href="register.html"><img src="images/login-ico.png" alt="Register" class="menu-items-img">
+                    <p class="letter">Register</p>
+                </a>
+                <a href="catalogue.html"><img src="images/login-ico.png" alt="Catalogue" class="menu-items-img">
+                    <p class="letter">Catalogue</p>
+                </a>
             </menu>
         </nav>
         <section class="scroll">
             <form action="" method="post">
-                <input type="text">
+                <input type="text" placeholder="filter" maxlength="18">
             </form>
             <article>
-                <h2>
-                    <img src="images/ico-category.svg" alt="Category">
-                    Category 1
-                </h2>
+                <p class="letter"> Rock:</p>
                 <div class="owl-carousel owl-theme">
 
-                <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a href="../images/Rectangle 38.svg" class="btn-more"><img src="images/Group 49.png"
-                            alt=""></a></figure>
-                <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                    alt=""></a></figure>
-                <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                    alt=""></a></figure>
-                        </div>
+                    <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a
+                            href="../images/Rectangle 38.svg"><img src="images/Group 49.png" class="btn-more"
+                                alt=""></a></figure>
+                    <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html"><img
+                                src="images/Group 49.png" class="btn-more" alt=""></a></figure>
+                    <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html"><img
+                                src="images/Group 49.png" class="btn-more" alt=""></a></figure>
+                </div>
             </article>
             <article>
-                <h2>
-                    <img src="images/ico-category.svg" alt="Category">
-                    Category 2
-                </h2>
+                <p class="letter"> Pop:</p>
                 <div class="owl-carousel owl-theme">
 
-                    <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                    <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                    <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                            </div>
-                </article>
+                    <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a
+                            href="../images/Rectangle 38.svg"><img src="images/Group 49.png" class="btn-more"
+                                alt=""></a></figure>
+                    <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html"><img
+                                src="images/Group 49.png" class="btn-more" alt=""></a></figure>
+                    <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html"><img
+                                src="images/Group 49.png" class="btn-more" alt=""></a></figure>
+                </div>
+            </article>
             <article>
-                <h2>
-                    <img src="images/ico-category.svg" alt="Category">
-                    Category 3
-                </h2>
+                <p class="letter"> Baladas:</p>
                 <div class="owl-carousel owl-theme">
 
-                    <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                    <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                    <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html" class="btn-more"><img src="images/Group 49.png"
-                        alt=""></a></figure>
-                            </div>
-                </article>
-        
+                    <figure><img src="images/image 1.png" alt="" class="slide">Mi buen amor <a href="view.html"
+                            class="btn-more"><img src="images/Group 49.png" alt=""></a></figure>
+                    <figure><img src="images/image 2.png" alt="" class="slide">Entre dos tierras<a href="view.html"
+                            class="btn-more"><img src="images/Group 49.png" alt=""></a></figure>
+                    <figure><img src="images/image 3.png" alt="" class="slide">Y al final <a href="view.html"
+                            class="btn-more"><img src="images/Group 49.png" alt=""></a></figure>
+                </div>
+            </article>
+
     </main>
     <script src="js/jquery-3.7.1.min.js"></script>
     <script src="js/owl.carousel.min.js"></script>
@@ -95,25 +92,24 @@
             $('.owl-carousel').owlCarousel({
                 center: false,
                 loop: true,
-                margin: 10,
+                margin: -30,
                 dots: false,
                 responsive: {
                     0: {
                         items: 2
                     }
                 }
-            
-        }) 
-        $('header').on('click','.btn-burger',function(){
-            $(this).toggleClass('active')
-            $('.nav').toggleClass('active')
-        })
+
+            })
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active')
+                $('.nav').toggleClass('active')
+            })
         })
 
     </script>
 
-  
+
 </body>
 
 </html>
-
