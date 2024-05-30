@@ -883,9 +883,10 @@ main.my-profile {
 
 
 /* - - - - - - - - - - - - - - - - */
-/* U S E R S */
+/* Artist - Songs*/
 /* - - - - - - - - - - - - - - - - */
-main.users {
+main.friends,
+main.songs {
     header {
         .btn-back {
             visibility: visible;
@@ -895,7 +896,8 @@ main.users {
     section {
         scrollbar-width: none;
         overflow-y: scroll;
-        height: 600px;
+        height: auto;
+        margin-bottom: 1rem;
         div.area {
             display: flex;
             flex-direction: column;
@@ -927,20 +929,30 @@ main.users {
         a.add:is(:active) {
             background: url(../images/btn-add-active.png) no-repeat center;
         }
+
+        .song {
+            width: auto !important;
+        }
+
         article.record {
-            background: url(../images/bg-row-odd.png) no-repeat center;
+            background: url(../images/card.svg) no-repeat center;
             display: flex;
             align-items: center;
             position: relative;
             gap: 0.6rem;
             height: 100px;
             width: 340px;
+            border-radius: 25px;
+
+            
+
             figure.avatar {
                 position: relative;
-                padding-left: 10px;
+                padding-left: 1rem;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                width: 30%;
                 .border {
                     position: absolute;
                     left: 20px;
@@ -958,59 +970,56 @@ main.users {
                 }
     
             }
-            aside {
-                h3 {
-                    color: var(--color-first);
-                    font-size: 18px;
-                    font-weight: 700;
-                    position: absolute;
-                    left: 90px;
-                    top: 20px;
-                }
-                h4 {
-                    color: var(--color-first);
-                    font-size: 14px;
-                    font-weight: 500;
-                    position: absolute;
-                    left: 90px;
-                    top: 50px;
-
-                }
-            }
-            figure.actions {
-                background: url(../images/bg-actions.png) no-repeat center;
-                height: 40px;
-                position: absolute;
-                display: flex;
+            
+            .song {
                 align-items: center;
-                justify-content: space-around;
-                bottom: 8px;
-                right: 8px;
-                width: 120px;
-                a:is(:link, :visited) {
-                    transition: all 0.2s ease-in;
-                    opacity: 0.7;
-                    padding: 4px;
-                    text-decoration: none;
-                    transform: scale(0.9);
+            }
+            aside {
+                display: flex;
+                flex-direction: column;
+                width: 60%;
+
+                div.actions {
+                   display: flex;
+                   justify-content: end;
+                   align-items: center;
+                    a:is(:link, :visited) {
+                        transition: all 0.2s ease-in;
+                        opacity: 0.7;
+                        padding: 4px;
+                        text-decoration: none;
+                        transform: scale(0.9);
+                    }
+                    a:is(:hover) {
+                        opacity: 1;
+                        transform: scale(1.05);
+                    }
+
+                    
                 }
-                a:is(:hover) {
-                    opacity: 1;
-                    transform: scale(1.05);
+                
+                div.song {
+                    justify-content: center;
+                }
+
+                .unfollow {
+                    width: 80px;
+                }
+
+                .play {
+                    width: 60px;
                 }
             }
+            
+            
         }
-        article.record:nth-child(even) {
-            background: url(../images/bg-row-even.png) no-repeat center;
-        }
+       
     }
     div.paginate {
         display: flex;
         align-items: center;
-        justify-content: space-between;
-        width: 380px;
-        margin-top: 0.8rem;
-        margin-inline: auto;
+        justify-content: space-around;
+        width: 100%;
         span {
             color: var(--color-five);
             font-size: 16px;
@@ -1035,4 +1044,20 @@ main.users {
     margin-right: 23px;
 }
 
+.buttons-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 2rem;
+    width: 100%;
+}
 
+.main-font {
+    font-family: "Patrick hand";
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.second-font {
+    font-family: "Patrick hand";
+    font-size: 14px;
+}
