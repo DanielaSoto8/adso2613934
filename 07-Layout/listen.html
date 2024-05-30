@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Game</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/master.css">
+
+</head>
+
+<body>
+    <main class="view-game">
+        <header>
+            <a href="view-game.html" class="btn-back">
+                <img src="images/btn-back.svg" alt="Back">
+            </a>
+            
+            
+
+        </header>
+        
+        <section>
+            <img src="images/play-music.svg" alt="Game">
+            <article>
+                <img src="images/ico-song.svg" alt="Game">
+            </article>
+        </section>
+    </main>
+    <script src="js/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('header').on('click', '.btn-burger', function () {
+                $(this).toggleClass('active')
+                $('.nav').toggleClass('active')
+            })
+        })
+
+    </script>
+
+
+</body>
+
+</html>
