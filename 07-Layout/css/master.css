@@ -108,7 +108,7 @@ body {
         border-radius: 20px;
         flex-direction: column;
         flex-wrap: wrap;
-        height: 800px;
+        height: 855px;
         padding-top: 10rem;
         position: absolute;
         top: 0;
@@ -347,7 +347,7 @@ main.catalogue {
         font-family: "Patrick Hand", cursive;
         font-style: normal;
         font-size: 24px;
-        color: black;
+        color: #9b9b62;
     }
 
     article {
@@ -614,7 +614,7 @@ main.register {
     font-family: "Patrick Hand", cursive;
     font-style: normal;
     font-size: 24px;
-    color: black;
+    color: #9b9b62;
 }
 
 #photo {
@@ -623,7 +623,9 @@ main.register {
 
 main.dashboard,
 main.my-profile,
-main.users  {
+main.users,
+main.artist,
+main.songs {
     nav.nav {
         align-items: center;
         gap: 0.5rem;
@@ -873,7 +875,7 @@ main.my-profile {
 /* - - - - - - - - - - - - - - - - */
 /* Artist - Songs*/
 /* - - - - - - - - - - - - - - - - */
-main.friends,
+main.artist,
 main.songs {
     header {
         .btn-back {
