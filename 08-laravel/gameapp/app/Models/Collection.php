@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class category extends Model
+class Collection extends Model
 {
     use HasFactory;
     /**
@@ -19,4 +19,14 @@ class category extends Model
         'user_id',
         
     ];
+    //Relationship: Collection belongs to user
+    public function user()
+    {
+        return $this->belongsTo('app\Models\User');
+    }
+     //Relationship: Collection belongs to game
+    public function game()
+    {
+        return $this->belongsTo('app\Models\Game');
+    }
 }

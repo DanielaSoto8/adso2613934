@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class category extends Model
+class Category extends Model
 {
     use HasFactory;
     /**
@@ -21,4 +21,9 @@ class category extends Model
         'description',
         
     ];
+    //Relationship: Category has many games
+    public function games()
+    {
+        return $this->hasMany('app\Models\Game');
+    }
 }
