@@ -31,11 +31,16 @@
             <img class="icons" src="images/ico-dashboard.svg" alt="Dashboard">
             <span class="main-font">Dashboard</span>
         </a>
-        <a href="{{url('welcome')}}">
+        <a href="javascript:;" onclick="logout.submit();">
             <img class="icons" src="images/ico-logout.svg" alt="Log Out">
             <span class="main-font">Log Out</span>
         </a>
+        <form id="logout" action="{{ route('logout')}}" method="post">
+        @csrf
+    </form>
     </menu>
       
 </nav>
 @endauth
+
+

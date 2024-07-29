@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/fonts.css">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/master.css">
+@extends('layouts.app')
+@section('title', 'Gameapp - login')
+@section('class', 'login')
 
-</head>
-
-<body>
-    <main class="login">
-        <header>
-            <div>
+@section('content')
+<header>
+<div>
             <img src="images/Login.png" alt="" class="btn-login">
             <svg class="btn-burger" viewBox="0 0 100 100" width="80">
                 <path class="line top"
@@ -24,24 +15,16 @@
                     d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
             </svg>
         </div>
-
-        </header>
-        <nav class="nav">
-            <menu>
-                <a href="login.html"><img src="images/login-ico.png" alt="Login" class="menu-items-img">
-                    <p class="letter">Login</p>
-                </a>
-                <a href="register.html"><img src="images/login-ico.png" alt="Register" class="menu-items-img">
-                    <p class="letter">Register</p>
-                </a>
-                <a href="catalogue.html"><img src="images/login-ico.png" alt="Catalogue" class="menu-items-img">
-                    <p class="letter">Catalogue</p>
-                </a>
-            </menu>
-        </nav>
-        <section>
-
-            <form action="dashboard.html" method="get">
+</header>
+@include('menuburguer')
+<section>
+<form action="{{ route('login')}}" method="post">
+        @csrf
+        @if(count($errors->all()) > 0)
+            @foreach($errors->all() as $message)
+                <li>{{$message}}</li>
+            @endforeach
+        @endif
                 <div class="form-group">
                     <label>
                         <img src="images/ico-email.png" alt="email">
@@ -70,10 +53,10 @@
                 </div>
             </form>
         </section>
-    </main>
-    <script src="js/jquery-3.7.1.min.js"></script>
+@endsection
 
-    <script>
+@section('js')
+<script>
         $(document).ready(function () {
 
             $('header').on('click', '.btn-burger', function () {
@@ -97,8 +80,4 @@
         })
 
     </script>
-
-
-</body>
-
-</html>
+@endsection

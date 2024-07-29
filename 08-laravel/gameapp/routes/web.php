@@ -18,6 +18,10 @@ Route::get('view-game', function () {
     return view('view-game');
 });
 
+Route::get('my-profile', function () {
+    return view('my-profile');
+});
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

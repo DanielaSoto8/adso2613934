@@ -26,6 +26,12 @@ body {
     align-items: center;
     min-height: 100vh;
 
+    section.scroll {
+        scrollbar-width: none;
+        overflow-y: scroll;
+        height: 620px;
+    }
+
     main {
         background: url(../images/bg-main.png)no-repeat center;
         height: 840px;
@@ -482,7 +488,7 @@ main.register {
         flex-direction: column;
         gap: 1rem;
         align-items: center;
-        margin-top: 6rem;
+        margin-top: 0rem;
 
         div.form-group {
             width: 300px;
@@ -548,7 +554,7 @@ main.register {
                 transition: all 0.4s ease-in;
                 color: var(--txt-color);
 
-                &:hover {
+                &:active {
                     background:url(../images/btn-hover.png) no-repeat center;
                     transform: scale(1.02) translateY(-5px);
                 }
@@ -559,7 +565,7 @@ main.register {
             }
 
             .mask {
-                mask-image: url(../images/mask.png);
+                mask-image: url(../images/shape-photo.svg);
                 mask-repeat: no-repeat;
                 mask-position: center top;
                 object-fit: contain;
@@ -622,6 +628,7 @@ main.register {
 }
 
 main.dashboard,
+main.catalogue,
 main.my-profile,
 main.users,
 main.artist,
@@ -1126,5 +1133,15 @@ main.add-artist {
     flex-direction: column;
     gap: 0.6rem;
     position: relative;
+
+}
+.icono{
+    width: 30px;
+}
+.letra{
+    font-family: "Patrick Hand", cursive;
+        font-style: normal;
+        font-size: 20px;
+        color: #0a0a0a;
 
 }

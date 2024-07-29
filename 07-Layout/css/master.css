@@ -559,7 +559,7 @@ main.register {
             }
 
             .mask {
-                mask-image: url(../images/mask.png);
+                mask-image: url(../images/shape-photo.svg);
                 mask-repeat: no-repeat;
                 mask-position: center top;
                 object-fit: contain;
