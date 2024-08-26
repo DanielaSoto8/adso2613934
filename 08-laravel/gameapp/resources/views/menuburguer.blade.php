@@ -20,8 +20,9 @@
     <figure class="avatar" >
         <img  src="./images/photo.png" alt="Photo">
     </figure>
-    <span class="letter">Daniela Valencia Soto</span>
-    <h4 class="letter">Admin</h4>
+  
+    <h3>{{Auth::user()->fullname}}</h3>
+    
     <menu>
         <a href="{{url('my-profile')}}">
             <img class="icons" src="images/ico-profile.svg" alt="My Profile">

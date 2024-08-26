@@ -53,8 +53,15 @@
           $(this).toggleClass("active");
           $(".nav").toggleClass("active");
         });
-        // - - - - - - - - - - - - - - -
-      });
+        @if(session('message'))
+        swal.fire({
+            position:"top",
+            title:'{{session('message')}}'
+            icon:"success",
+            toast:true,
+            timer:5000
+        })
+    })
+        @endif
     </script>
-{{ $users->links('layouts.paginator') }}
 @endsection

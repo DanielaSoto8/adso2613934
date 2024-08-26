@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requets\UserRequest;
 use Illuminate\Http\Request;
+
 
 class UserController extends Controller
 {
@@ -22,15 +24,30 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        dd($request->all());
+
+        //uploadFile 
+        if ($request->hasFile('photo')){
+            $photo=time()  .'.'. $request->photo->extension();
+            $request->photo->move(public_path('images'),$photo);
+        }
+        //NewUser
+        $user= new User;
+        $user=document = $request->document;
+        $user=fullname = $request->fullname;
+        $user=birthdate = $request->birthdate;
+        $user=photo =$photo;
+
+
+        if ($)
     }
 
     /**

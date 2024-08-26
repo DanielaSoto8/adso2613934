@@ -14,31 +14,36 @@
         <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
     </svg>
 </header>
-@include('menuburguer')
+@include('layouts.menuburguer')
 <section>
             <figure class="avatar" >
+                <img  src="" alt="">
+
                 <img  src="images/photo.png" alt="Photo">
                 
             </figure>
-            <b class="letra">Daniela Valencia Soto </b>
-            <span class="email"><b class="letra">danyvalenciasoto@gmail.com</b></span>
-            
+
+
+
+            <h3>{{Auth::user()->fullname}}</h3>
             <div class="grid">
                 <span class="icono">
                     <img class="icono" src="images/direccion.png" alt="Address">
-                    <b class="letra">Str 16A # 3-64</b>
+                 <b>{{Auth::user()->Address}}</b>
+                    
                 </span>
                 <span class="icono">
                     <img class="icono" src="images/phone-number.png" alt="Phone Number">
-                    <b class="letra">3147348430</b>
+                    <b>{{Auth::user()->PhoneNumber}}</b>
                 </span>
                 <span class="data data-birth-date">
                     <img class="icono" src="images/birth-date.png" alt="Birth Date">
-                    <b class="letra">14/06/1989</b>
+                    <b>{{Auth::user()->BirtDate }}</b>
+                
                 </span>
                 <span class="data data-gender">
                     <img class="icono" src="images/documentos.png" alt="Documento">
-                    <b class="letra">1087645678</b>
+                    <b>{{Auth::user()->Documento}}</b>
                 </span>
             </div>
         </section>
