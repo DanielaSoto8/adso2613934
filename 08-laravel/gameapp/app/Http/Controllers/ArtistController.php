@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
+use App\Models\Artist;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ArtistController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +13,8 @@ class CategoryController extends Controller
     public function index()
     {
         //$users = Category::all();
-        $categories = Category::paginate(20);
-        return view('categories.index')->with('categories', $categories);
+        $artists = Artist::paginate(20);
+        return view('artists.index')->with('artists', $artists);
     }
 
     /**
@@ -36,7 +36,7 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Category $user)
+    public function show(Artist $user)
     {
         //
     }
@@ -44,7 +44,7 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Category $user)
+    public function edit(Artist $user)
     {
         //
     }
@@ -52,7 +52,7 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Category $user)
+    public function update(Request $request, Artist $user)
     {
         //
     }
@@ -60,7 +60,7 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Category $user)
+    public function destroy(Artist $user)
     {
         //
     }

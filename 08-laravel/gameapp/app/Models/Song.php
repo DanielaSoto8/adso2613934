@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Game extends Model
+class Song extends Model
 {
     use HasFactory;
     /**
@@ -26,17 +26,17 @@ class Game extends Model
         'description',
         
     ];
-    //Relationship: Game belongs to user
+    //Relationship: Artist belongs to user
     public function user()
     {
         return $this->belongsTo('app\Models\User');
     }
-      //Relationship: Game belongs to category
+      //Relationship: Artist belongs to category
     public function category()
     {
         return $this->belongsTo('app\Models\Category');
     }
-      //Relationship: Game belongs to collection
+      //Relationship: Artist belongs to collection
     public function collection()
     {
         return $this->belongsTo('app\Models\Collection');

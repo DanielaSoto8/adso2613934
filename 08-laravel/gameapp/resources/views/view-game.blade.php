@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'appMusic - View Game')
+@section('title', 'appMusic - View Artist')
 @section('class', 'view-game')
 
 @section('content')
@@ -19,7 +19,7 @@
 
 </header>
 @include('menuburguer')
-<img src="images/imgmusic.png" alt="Game">
+<img src="images/imgmusic.png" alt="Artits">
 <article>
     <div class="row">
         <div class="column">

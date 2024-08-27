@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Gameapp - catalogue')
+@section('title', 'appmusic - catalogue')
 @section('class', 'catalogue')
 
 @section('content')

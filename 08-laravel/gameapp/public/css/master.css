@@ -437,8 +437,8 @@ main.catalogue {
 }
 
 /*------------------------------*/
-/*--------VIEW -GAME ----------------------*/
-main.view-game{
+/*--------VIEW -ARTIST ----------------------*/
+main.view-artist{
     header{
         margin-bottom: 0.5rem;
         h1{
@@ -512,7 +512,11 @@ main.register {
                 color: black;
             }
 
-            input {
+            input[type="text"],
+            input[type="email"],
+            input[type="password"],
+            input[type="number"]
+              {
                 border: none;
                 background: url(../images/input.png) no-repeat;
                 height: 60px;
@@ -565,7 +569,7 @@ main.register {
             }
 
             .mask {
-                mask-image: url(../images/shape-photo.svg);
+                mask-image: url(../images/avatar.svg);
                 mask-repeat: no-repeat;
                 mask-position: center top;
                 object-fit: contain;
@@ -632,7 +636,7 @@ main.catalogue,
 main.my-profile,
 main.users,
 main.artist,
-main.songs {
+main.songs { 
     nav.nav {
         align-items: center;
         gap: 0.5rem;
@@ -652,7 +656,7 @@ main.songs {
                 top: -0px;
             }
             .mask {
-                mask-image: url(../images/shape-photo2.svg);
+                mask-image: url(../images/avatar.png);
                 mask-repeat: no-repeat;
                 mask-position: center top;
                 object-fit: cover;
@@ -688,6 +692,29 @@ main.songs {
         .icons {
             width: 40px;
             margin-left: 40px;
+        }
+        .profile-photo
+        #qsearch{
+            border: none;
+                background: url(../images/input.png) no-repeat;
+                height: 60px;
+                outline: none;
+                width: 300px;
+                font-size: 18px;
+                font-weight: 300;
+                color: var(--color-first);
+                text-indent: 1rem;
+
+                &::placeholder {
+                    opacity: 0.6;
+                    color: var(--color-first);
+                }
+                section.scroll {
+                    scrollbar-width: none;
+                    overflow-y: scroll;
+                    height: 620px;
+                }
+
         }
     }
 }
@@ -801,7 +828,7 @@ main.my-profile {
                 top: -0px;
             }
             .mask {
-                mask-image: url(../images/shape-photo2.svg);
+                mask-image: url(../images/avatar.svg);
                 mask-repeat: no-repeat;
                 mask-position: center top;
                 object-fit: cover;
@@ -880,9 +907,10 @@ main.my-profile {
 
 
 /* - - - - - - - - - - - - - - - - */
-/* Artist - Songs*/
+/* Artist - Song*/
 /* - - - - - - - - - - - - - - - - */
 main.artist,
+main.users,
 main.songs {
     header {
         .btn-back {
@@ -1145,3 +1173,56 @@ main.add-artist {
         color: #0a0a0a;
 
 }
+#qsearch {
+    
+    border: none;
+        background: url(../images/input.png) no-repeat;
+        height: 60px;
+        outline: none;
+        width: 300px;
+        font-size: 18px;
+        font-weight: 300;
+        color: var(--color-first);
+        text-indent: 1rem;
+        display: flex;
+        justify-content: center; /* Centra horizontalmente */
+        align-items: center;     /* Centra verticalmente */
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+}
+
+.files-download {
+    margin-top: 10px;
+}
+        
+
+        &::placeholder {
+            opacity: 0.6;
+            color: var(--color-first);
+            display: inline-block;
+            
+
+}
+
+
+.download {
+width: 25px;
+height: 25px;
+}
+
+.profile-photo{
+            border: none;
+                height: 60px;
+                outline: none;
+                width: 300px;
+                font-size: 18px;
+                font-weight: 300;
+                color: var(--color-first);
+                text-indent: 1rem;
+}
+

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Gameapp-Create User')
+@section('title','appmusic-Create User')
 @section('class','add register')
 
 @section('content')
@@ -40,6 +40,12 @@
                 <p class="letter1">Fullname:</p>
             </label>
             <input type="text" name="fullname" placeholder="Alfonso">
+        </div>
+        <div class="form-group">
+            <label>
+                <p class="letter1">Gender:</p>
+            </label>
+            <input type="text" name="gender" placeholder="Femenino">
         </div>
         <div class="form-group">
             <label>

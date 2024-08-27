@@ -2,19 +2,19 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Game;
+use App\Models\song;
 use Illuminate\Http\Request;
 
-class GameController extends Controller
+class SongController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //$users = Category::all();
-        $games = Game::paginate(20);
-        return view('games.index')->with('games', $games);
+        //$users = song::all();
+        $songs = song::paginate(20);
+        return view('songs.index')->with('songs', $songs);
     }
 
     /**
@@ -36,7 +36,7 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Game $user)
+    public function show(song $user)
     {
         //
     }
@@ -44,7 +44,7 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Game $user)
+    public function edit(song $user)
     {
         //
     }
@@ -52,7 +52,7 @@ class GameController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Game $user)
+    public function update(Request $request, song $user)
     {
         //
     }
@@ -60,7 +60,7 @@ class GameController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Game $user)
+    public function destroy(song $user)
     {
         //
     }

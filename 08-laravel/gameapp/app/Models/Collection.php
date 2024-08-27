@@ -15,7 +15,7 @@ class Collection extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'game_id',
+        'artist_id',
         'user_id',
         
     ];
@@ -24,9 +24,9 @@ class Collection extends Model
     {
         return $this->belongsTo('app\Models\User');
     }
-     //Relationship: Collection belongs to game
-    public function game()
+     //Relationship: Collection belongs to Artist
+    public function artist()
     {
-        return $this->belongsTo('app\Models\Game');
+        return $this->belongsTo('app\Models\Artist');
     }
 }

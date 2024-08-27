@@ -14,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id');
-            $table->foreign('game_id')->references('id')->on('games');
+            $table->unsignedBigInteger('artist_id');
+            $table->foreign('artist_id')->references('id')->on('artists');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

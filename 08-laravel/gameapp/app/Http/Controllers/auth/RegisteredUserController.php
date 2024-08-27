@@ -29,15 +29,16 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        /*$request->validate([
+        $request->validate([
             'document' => ['required', 'numeric', 'unique:'.User::class],
             'fullname' => ['required', 'string', 'max:64'],
+            'gender' => ['required', 'string', 'max:64'],
             'birthdate' => ['required', 'date'],
             'photo' => ['required', 'image'],
             'phone' => ['required'],
             'email' => ['required', 'string', 'lowercase', 'email', 'unique'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()]
-        ]);*/
+        ]);
 
         if($request->hasFile('photo')) {
             $photo =time() . '.'.$request->photo->extension();
@@ -47,6 +48,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'document' => $request->document,
             'fullname' => $request->fullname,
+            'gender' => $request->gender,
             'birthdate' => $request->birthdate,
             'photo' => $photo,
             'phone' => $request->phone,

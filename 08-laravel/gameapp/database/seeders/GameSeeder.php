@@ -4,46 +4,46 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Game;
+use App\Models\artist;
 
-class GameSeeder extends Seeder
+class ArtistSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-       $game= new Game();
-       $game->title = 'Mario Oddyssey';
-       $game->developer = 'Nintendo';
-       $game->releasedate = '2013-11-21';
-       $game->category_id = 1;
-       $game->user_id = 1;
-       $game->price = 59 ;
-       $game->genre = '3D Adventure';
-       $game->description = 'This is a Mario. It is awesome.';
-       $game->save();
+       $artist= new artist();
+       $artist->title = 'Mario Oddyssey';
+       $artist->developer = 'Nintendo';
+       $artist->releasedate = '2013-11-21';
+       $artist->category_id = 1;
+       $artist->user_id = 1;
+       $artist->price = 59 ;
+       $artist->genre = '3D Adventure';
+       $artist->description = 'This is a Mario. It is awesome.';
+       $artist->save();
 
-       $game= new Game();
-       $game->title = 'Halo Infinity';
-       $game->developer = '343 Indutsry';
-       $game->releasedate = '2021-12-08';
-       $game->category_id = 3;
-       $game->user_id = 1;
-       $game->price = 60 ;
-       $game->genre = 'RPG';
-       $game->description = 'This is a Mario. It is awesome.';
-       $game->save();
+       $artist= new artist();
+       $artist->title = 'Halo Infinity';
+       $artist->developer = '343 Indutsry';
+       $artist->releasedate = '2021-12-08';
+       $artist->category_id = 3;
+       $artist->user_id = 1;
+       $artist->price = 60 ;
+       $artist->genre = 'RPG';
+       $artist->description = 'This is a Mario. It is awesome.';
+       $artist->save();
 
-       $game= new Game();
-       $game->title = 'God of War';
-       $game->developer = 'Santa Monica ';
-       $game->releasedate = '2013-11-21';
-       $game->category_id = 4;
-       $game->user_id = 1;
-       $game->price = 59 ;
-       $game->genre = '3D Adventure';
-       $game->description = 'This is a Mario. It is awesome.';
-       $game->save();
+       $artist= new artist();
+       $artist->title = 'God of War';
+       $artist->developer = 'Santa Monica ';
+       $artist->releasedate = '2013-11-21';
+       $artist->category_id = 4;
+       $artist->user_id = 1;
+       $artist->price = 59 ;
+       $artist->genre = '3D Adventure';
+       $artist->description = 'This is a Mario. It is awesome.';
+       $artist->save();
     }
 }

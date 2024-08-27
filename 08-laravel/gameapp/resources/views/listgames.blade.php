@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List All Games</title>
+    <title>List All Artists</title>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.2/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <h1>List All Games</h1>
+    <h1>List All Artists</h1>
     <table class="table table-zebra" >
         <thead>
             <tr>
@@ -22,15 +22,15 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($games as $game)
+            @foreach ($artists as $artist)
                 <tr>
-                    <td>{{ $game->id }}</td>
-                    <td>{{ $game->title }}</td>
-                    <td>{{ $game->developer }}</td>
-                    <td>{{ $game->releasedate }}</td>
-                    <td>{{ $game->category->name }}</td>
-                    <td>{{ $game->user->fullname }}</td>
-                    <td>{{ $game->created_at->diffForHumans() }}</td>
+                    <td>{{ $artist->id }}</td>
+                    <td>{{ $artist->title }}</td>
+                    <td>{{ $artist->developer }}</td>
+                    <td>{{ $artist->releasedate }}</td>
+                    <td>{{ $artist->category->name }}</td>
+                    <td>{{ $artist->user->fullname }}</td>
+                    <td>{{ $artist->created_at->diffForHumans() }}</td>
                 </tr>
             @endforeach
         </tbody>

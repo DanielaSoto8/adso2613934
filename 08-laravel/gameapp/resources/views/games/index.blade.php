@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'GameApp - Games Module')
+@section('title', 'appmusic - Song Module')
 @section('class', 'users')
 
 @section('content')
@@ -7,7 +7,7 @@
         <a class="btn-back" href="{{ url('dashboard') }}">
           <img src="../images/btn-back.svg" alt="Back" />
         </a>
-        <h1>Games</h1>
+        <h1>Song</h1>
         <svg class="btn-burger" viewBox="0 0 100 100" width="80">
           <path
             class="line top"
@@ -26,7 +26,7 @@
           <a class="add" href="add.html">
             <img src="../images/content-btn-add.svg" alt="Add" />
           </a>
-        @foreach($games as $game)
+        @foreach($artists as $artist)
         <article class="record">
             <figure class="avatar">
               <img class="mask" src="../images/img-games.png" alt="Photo" />
@@ -37,8 +37,8 @@
               />
             </figure>
             <aside>
-              <h3>{{$game->title}}</h3>
-              <h4>{{$game->genre}}</h4>
+              <h3>{{$artist->title}}</h3>
+              <h4>{{$artist->genre}}</h4>
             </aside>
             <figure class="actions">
               <a href="search.html">

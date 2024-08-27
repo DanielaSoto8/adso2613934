@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Category extends Model
+class Shared extends Model
 {
     use HasFactory;
     /**
@@ -21,9 +21,9 @@ class Category extends Model
         'description',
         
     ];
-    //Relationship: Category has many games
-    public function games()
+    //Relationship: Category has many artists
+    public function artists()
     {
-        return $this->hasMany('app\Models\Game');
+        return $this->hasMany('app\Models\Artist');
     }
 }

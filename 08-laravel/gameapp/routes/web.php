@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\GameController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\ArtistController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -14,8 +14,8 @@ Route::get('catalogue', function () {
     return view('catalogue');
 });
 
-Route::get('view-game', function () {
-    return view('view-game');
+Route::get('view-artist', function () {
+    return view('view-artist');
 });
 
 Route::get('my-profile', function () {
@@ -32,9 +32,19 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resources([
         'users' => UserController::class,
-        'categories' => CategoryController::class,
-        'games' => GameController::class
+        'songs' => SongController::class,
+        'artists' => ArtistController::class
     ]);
 });
+
+require __DIR__.'/auth.php';
+
+
+//search
+Route::post('users/search', [UserController::class, 'search']);
+
+//Exports
+Route::get('export/users/pdf', [UserController::class, 'pdf']);
+Route::get('export/users/excel', [UserController::class, 'excel']);
 
 require __DIR__.'/auth.php';

@@ -19,6 +19,7 @@ class User extends Authenticatable
     protected $fillable = [
         'document',
         'fullname',
+        'gender',
         'birthdate',
         'photo',
         'phone',
@@ -48,10 +49,14 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    //Relationship: User has many games
-    public function games()
+
+    
+    //Relationship: User has many Artists
+    public function song()
+
+
     {
-        return $this->hasMany('app\Models\Game');
+        return $this->hasMany('app\Models\song');
     }
      //Relationship: User has many Collections
     public function Colections()

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Gameapp - my-profile')
+@section('title', 'appmusic - my-profile')
 @section('class', 'my-profile')
 
 @section('content')
@@ -11,53 +11,63 @@
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
         <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
         <path class="line middle" d="m 70,50 h -40" />
-        <path class="line bottom" d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
+        <path class="line bottom"
+            d="m 30,67 h 40 c 0,0 8.5,0.149796 8.5,-8.5 0,-8.649796 -8.5,-8.5 -8.5,-8.5 h -20 v 20" />
     </svg>
 </header>
-@include('layouts.menuburguer')
+@include('menuburguer')
 <section>
-            <figure class="avatar" >
-                <img  src="" alt="">
-
-                <img  src="images/photo.png" alt="Photo">
-                
-            </figure>
+    <figure class="avatar">
+        <img src="{{asset('images') . '/' . Auth::user()->photo}}" alt="Photo">
 
 
+    </figure>
+    <h2>{{Auth::user()->fullname}}</h2>
+    <span class="email">
+        {{Auth::user()->email}}
+    </span>
+    <span class="icono">
+        <img class="icono" src="images/ico-role.svg" alt="Role">
+        {{Auth::user()->role}}
+    </span>
+    <div class="grid">
+        <span class="icono">
+            <img class="icono" src="images/documentos.png" alt="Documento">
+            {{Auth::user()->document}}
+        </span>
+        <span class="icono">
+            <img class="icono" src="images/direccion.png" alt="Address">
+            N/A
+        </span>
+        <span class="icono">
+            <img class="icono" src="images/phone-number.png" alt="Phone Number">
+            {{Auth::user()->phone}}
+        </span>
+        <span claclass="icono" src="images/birth-date.png" alt="Birth Date">
+            {{Auth::user()->birthdate }}
 
-            <h3>{{Auth::user()->fullname}}</h3>
-            <div class="grid">
-                <span class="icono">
-                    <img class="icono" src="images/direccion.png" alt="Address">
-                 <b>{{Auth::user()->Address}}</b>
-                    
-                </span>
-                <span class="icono">
-                    <img class="icono" src="images/phone-number.png" alt="Phone Number">
-                    <b>{{Auth::user()->PhoneNumber}}</b>
-                </span>
-                <span class="data data-birth-date">
-                    <img class="icono" src="images/birth-date.png" alt="Birth Date">
-                    <b>{{Auth::user()->BirtDate }}</b>
-                
-                </span>
-                <span class="data data-gender">
-                    <img class="icono" src="images/documentos.png" alt="Documento">
-                    <b>{{Auth::user()->Documento}}</b>
-                </span>
-            </div>
-        </section>
+            <span class="icono">
+                <img class="icono" src="images/ico-data-status.svg" alt="Status">
+                Active
+            </span>
+
+
+        </span>
+
+    </div>
+
+</section>
 @endsection
 
 @section('js')
 <script>
-$(document).ready(function () {
-            
-            $('header').on('click', '.btn-burger', function(){
+    $(document).ready(function () {
+
+        $('header').on('click', '.btn-burger', function () {
             $(this).toggleClass('active')
             $('.nav').toggleClass('active')
-            })
-        //----------------------------       
         })
+        //----------------------------       
+    })
 </script>
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Gameapp - register')
+@section('title', 'appmusic - register')
 @section('class', 'register')
 
 @section('content')
@@ -19,14 +19,13 @@
 <section class="scroll">
     <form action="{{ route('register')}}" method="post" enctype="multipart/form-data">
         @csrf
-        @csrf
         @if(count($errors->all()) > 0)
             @foreach($errors->all() as $message)
                 <li>{{$message}}</li>
             @endforeach
         @endif
         <div class="form-group">
-            <img id="upload" class="mask" src="images/avatar.png" alt="">
+            <img id="upload" class="mask" src="images/avatar.svg" alt="">
             <input id="photo" type="file" name="photo" accept="image/*">
         </div>
         <div class="form-group">
@@ -43,10 +42,17 @@
         </div>
         <div class="form-group">
             <label>
+                <p class="letter1">Gender:</p>
+            </label>
+            <input type="text" name="gender" placeholder="Femenino">
+        </div>
+        <div class="form-group">
+            <label>
                 <p class="letter1">Email:</p>
             </label>
-            <input type="email" name="email" placeholder="alfonso@gmail.com">
+            <input type="email" name="email" placeholder="dani@gmail.com">
         </div>
+
         <div class="form-group">
             <label>
                 <p class="letter1">Phone Number:</p>
