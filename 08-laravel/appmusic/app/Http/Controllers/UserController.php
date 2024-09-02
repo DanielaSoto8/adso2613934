@@ -34,7 +34,6 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-        //dd($request->all());
 
         if($request->hasFile('photo')) {
             $photo =time() . '.'.$request->photo->extension();

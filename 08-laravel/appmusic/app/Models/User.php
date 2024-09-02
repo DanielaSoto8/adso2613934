@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
-    use HasFactory, Notifiable;
+    use  HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +26,7 @@ class User extends Authenticatable
         'phone',
         'email',
         'password',
+        'role'
     ];
 
     /**
@@ -38,30 +40,32 @@ class User extends Authenticatable
     ];
 
     /**
-     * Get the attributes that should be cast.
+     * The attributes that should be cast.
      *
-     * @return array<string, string>
+     * @var array<string, string>
      */
-    protected function casts(): array
-    {
-        return [
-            'email_verified_at' => 'datetime',
-            'password' => 'hashed',
-        ];
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+        'password' => 'hashed',
+    ];
+
+    //Relationship : User has many games
+    public function games() {
+        return $this->hasMany('App\Models\Game');
     }
 
-    
-    //Relationship: User has many Artists
-    public function song()
-
-
-    {
-        return $this->hasMany('app\Models\song');
+    //Relationship : User has many collections
+    public function collections() {
+        return $this->hasMany('App\Models\Collection');
     }
-     //Relationship: User has many Collections
-    public function Colections()
+
+    public function scopeNames($users, $query)
     {
-        return $this->hasMany('app\Models\class');
+        if (trim($query)) {
+            $users->where('fullname', 'LIKE' , "%$query%")
+                ->orwhere('email', 'LIKE' , "%$query%")
+                ->orwhere('document', 'LIKE' , "%$query%");
+        }
     }
 }
 

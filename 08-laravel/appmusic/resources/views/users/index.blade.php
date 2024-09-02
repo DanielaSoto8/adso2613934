@@ -20,7 +20,9 @@
 
     <div class="area">
         <div class="container">
-            <input type="text" placeholder="Search..." name="qsearch" id="qsearch">
+
+
+            <input type="text" placeholder="Search..." name="qsearch" id="qsearch" class="qsearch">
             <div class="files-download">
                 <a href="{{ url('users/pdf') }}">
                     <img class="download" src="{{ asset('images/btn_pdf.png') }}" alt="PDF">
@@ -34,8 +36,9 @@
 
             </div>
         </div>
-        @foreach ($users as $user)
-            <article class="record">
+
+        <article class="record">
+            @foreach ($users as $user)
                 <figure class="avatar">
                     <img src="./images/{{ $user->photo }}" alt="Photo">
                 </figure>
@@ -59,8 +62,9 @@
                         </a>
                     </div>
                 </aside>
-            </article>
-        @endforeach
+            @endforeach
+        </article>
+
     </div>
 </section>
 <div class="paginate">
@@ -106,6 +110,24 @@
             if (confirm(`Are you sure you want to delete ${$(this).data('fullname')}?`)) {
                 $(this).siblings('form').submit();
             }
+        });
+        $('.qsearch').on('keyup', function (e) {
+            e.preventDefault();
+            var query = $(this).val();
+            var token = $('meta[name="csrf-token"]').attr('content');
+            var model = 'users';
+            console.log(query, token);
+
+            $.post(model + '/search', {
+                q: query,
+                _token: token
+            },
+                function (data) {
+                    $('.record').html(data);
+                }
+            ).fail(function (xhr, status, error) {
+                console.error('Error:', error);
+            });
         });
     });
 </script>

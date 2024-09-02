@@ -928,6 +928,7 @@ main.songs {
             flex-direction: column;
             align-items: center;
             gap: 1rem;
+           
         }
         a.add:is(:link, :visited) {
             background: url(../images/bg-btn-add.png) no-repeat center;
@@ -960,14 +961,17 @@ main.songs {
         }
 
         article.record {
-            background: url(../images/card.svg) no-repeat center;
+            background: url(../images/card.svg) ;
             display: flex;
+            flex-direction: column;
             align-items: center;
             position: relative;
             gap: 0.6rem;
-            height: 100px;
+            height: 450px;
             width: 340px;
             border-radius: 25px;
+        }
+           
 
             
 
