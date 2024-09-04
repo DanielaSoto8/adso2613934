@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\User;
+use App\Models\Song;
 
-class UserRequest extends FormRequest
+class SongRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,22 +24,21 @@ class UserRequest extends FormRequest
     {
         if ($this->method() === 'PUT') {
             return [
-                'fullname' => 'required|string',
-                'gender' => 'required',
-                'birthdate' => 'required|date',
-                'phone' => 'required'
-
+                'id'=> 'required,'.$this->ano_publicacion,
+                'ano_publicacion' => 'required|date',
+                'nombre_cancion' => 'required|string',
+                'artista' => 'required|string',
+                'genero' => 'required|string',
+                'photo' => 'required|image',
+    
             ];
         } else {
             return [
-                'document' => ['required', 'numeric', 'unique:'.User::class],
-                'fullname' => ['required', 'string'],
-                'gender' => ['required'],
-                'birthdate' => ['required', 'date'],
-                'photo' => ['required', 'image'],
-                'phone' => ['required'],
-                'email' => ['required', 'string', 'lowercase', 'email', 'unique:'.User::class],
-                'password' => ['required', 'confirmed']
+                'ano_publicacion' => ['required', 'date'],
+                'nombre_cancion' => ['required', 'string'],
+                'artista' => ['required', 'string'],
+                'genero' => ['required', 'string'],
+                'photo' => ['required', 'image']
             ];
         }
     }

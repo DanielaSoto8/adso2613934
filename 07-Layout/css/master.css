@@ -860,6 +860,7 @@ main.my-profile {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 0.6rem;
+            margin-top: 50px;
             span {
                 background: url(../images/bg-data-odd.png) no-repeat center;
             }

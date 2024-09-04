@@ -20,10 +20,11 @@
 
     <div class="area">
         <div class="container">
-
-
             <input type="text" placeholder="Search..." name="qsearch" id="qsearch" class="qsearch">
             <div class="files-download">
+
+
+
                 <a href="{{ url('users/pdf') }}">
                     <img class="download" src="{{ asset('images/btn_pdf.png') }}" alt="PDF">
                 </a>
@@ -32,39 +33,45 @@
                     <img class="download" src="{{ asset('images/btn_excel.png') }}" alt="Excel">
                 </a>
 
-
+                <a class="download" href="{{ url('users/create') }}">
+                    <img src={{ asset('images/btn-add.jpg') }} alt="" />
+                </a>
 
             </div>
         </div>
+        <div class="users-content">
+        @foreach ($users as $user)
+            <article class="record">
+                    <figure class="avatar">
+                        <img src="./images/{{ $user->photo }}" alt="Photo">
+                    </figure>
+                    <aside>
+                        <span class="main-font">{{ $user->fullname }}</span>
 
-        <article class="record">
-            @foreach ($users as $user)
-                <figure class="avatar">
-                    <img src="./images/{{ $user->photo }}" alt="Photo">
-                </figure>
-                <aside>
-                    <span class="main-font">{{ $user->fullname }}</span>
-
-                    <div class="actions">
+                        <div class="actions">
                         <a href="{{ url('users/' . $user->id . '/edit') }}">
-                            <img src="./images/ico-edit.svg" alt="Edit">
+                            <img src="../images/ico-edit.svg" alt="Edit" />
                         </a>
                         <a href="javascript:void(0);" class="delete" data-fullname="{{ $user->fullname }}">
-                            <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete" />
-                        </a>
-                        <form action="{{ url('users/' . $user->id) }}" method="POST" style="display: none;">
+                                <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete" />
+                            </a>
+
+                        <form action="{{ url('users/' . $user->id) }}" method="post" class="delete-form">
                             @csrf
-                            @method('DELETE')
+                            @method('delete')
                         </form>
 
-                        <a href="/07-layout/users/show.html">
-                            <img class="unfollow" src="./images/btn-unfollow.svg" alt="unfollow">
-                        </a>
-                    </div>
-                </aside>
-            @endforeach
-        </article>
 
+                        <a href="{{ url('users/' . $user->id) }}">
+                            <img src="../images/btn-unfollow.svg" alt="Show" />
+                        </a>
+
+            
+                        </div>
+                    </aside>
+            </article>
+        @endforeach
+        </div>
     </div>
 </section>
 <div class="paginate">

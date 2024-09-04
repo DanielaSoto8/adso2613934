@@ -32,16 +32,14 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resources([
         'users' => UserController::class,
-        'songs' => SongController::class,
-        'artists' => ArtistController::class
+        'songs' => SongController::class
     ]);
 });
 
-require __DIR__.'/auth.php';
-
-
 //search
 Route::post('users/search', [UserController::class, 'search']);
+Route::post('songs/search', [SongController::class, 'search']);
+
 
 //Exports
 Route::get('export/users/pdf', [UserController::class, 'pdf']);

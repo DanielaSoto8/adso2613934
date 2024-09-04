@@ -14,27 +14,23 @@ class Song extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'title',
-        'image',
-        'developer',
-        'releasedate',
-        'category_id',
-        'user_id',
-        'price',
-        'genre',
-        'slider',
-        'description',
+        'ano_publicacion',
+        'nombre_cancion',
+        'artista',
+        'genero',
+        'photo'
+        
         
     ];
     //Relationship: Artist belongs to user
     public function user()
     {
-        return $this->belongsTo('app\Models\User');
+        return $this->belongsTo('app\Models\Song');
     }
       //Relationship: Artist belongs to category
-    public function category()
+    public function song()
     {
-        return $this->belongsTo('app\Models\Category');
+        return $this->belongsTo('app\Models\Song');
     }
       //Relationship: Artist belongs to collection
     public function collection()

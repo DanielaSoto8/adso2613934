@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'appmusic -create User')
+@section('title', 'appmusic -create Songs')
 @section('class', 'register')
 
 @section('content')
@@ -17,7 +17,7 @@
 </header>
 @include('menuburguer')
 <section class="scroll">
-    <form action="{{ route('register')}}" method="post" enctype="multipart/form-data">
+    <form action="{{ route('songs.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         @if(count($errors->all()) > 0)
             @foreach($errors->all() as $message)
@@ -30,49 +30,29 @@
         </div>
         <div class="form-group">
             <label>
-                <p class="letter1">Document:</p>
+                <p class="letter1">Año de publicación:</p>
             </label>
-            <input type="number" name="document" placeholder="648454 ">
+            <input type="date" name="ano_publicacion" placeholder="2013 ">
         </div>
         <div class="form-group">
             <label>
-                <p class="letter1">Fullname:</p>
+                <p class="letter1">Nombre de la canción:</p>
             </label>
-            <input type="text" name="fullname" placeholder="Alfonso">
+            <input type="text" name="nombre_cancion" placeholder="Y al final ">
         </div>
         <div class="form-group">
             <label>
-                <p class="letter1">Gender:</p>
+                <p class="letter1">Artista:</p>
             </label>
-            <input type="text" name="gender" placeholder="Femenino">
+            <input type="text" name="artista" placeholder="bunbury">
         </div>
         <div class="form-group">
             <label>
-                <p class="letter1">Email:</p>
+                <p class="letter1">Genero:</p>
             </label>
-            <input type="email" name="email" placeholder="dani@gmail.com">
+            <input type="text" name="genero" placeholder="rock">
         </div>
 
-        <div class="form-group">
-            <label>
-                <p class="letter1">Phone Number:</p>
-            </label>
-            <input type="text" name="phone" placeholder="3102457896">
-        </div>
-        <div class="form-group">
-            <label>
-                <p class="letter1">Birthdate:</p>
-            </label>
-            <input type="text" name="birthdate" placeholder="20/02/2025">
-        </div>
-        <div class="form-group">
-            <label>
-                <p class="letter1">Password:</p>
-            </label>
-            <img class="ico-eye" src="images/hide-password.png" alt=>
-            <input type="password" name="password" placeholder="danyvalencia">
-
-        </div>
         <div class="form-group">
             <button type="submit">
                 <img src="images/btn-register.svg" alt="register">
