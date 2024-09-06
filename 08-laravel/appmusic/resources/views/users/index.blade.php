@@ -99,7 +99,7 @@
             _token: token
         },
             function (data) {
-                $('.users-content').html(data);
+                $('.content-list').html(data);
             }
         ).fail(function (jqXHR, textStatus, errorThrown) {
             console.error('Error en la solicitud: ' + textStatus, errorThrown);

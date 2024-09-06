@@ -111,7 +111,7 @@
                 _token: token
             },
                 function (data) {
-                    $('.songs-content').html(data);
+                    $('.content-list').html(data);
                 }
             ).fail(function (xhr, status, error) {
                 console.error('Error:', error);
