@@ -17,14 +17,15 @@
 </header>
 @include('menuburguer')
 <section>
-<div class="area">
+    <div class="area">
+
         <div class="container">
             <input type="text" placeholder="Search..." name="qsearch" id="qsearch" class="qsearch">
             <div class="files-download">
 
 
 
-                <a href="{{ url('users/pdf') }}">
+                <a href="{{ url('songs/pdf') }}">
                     <img class="download" src="{{ asset('images/btn_pdf.png') }}" alt="PDF">
                 </a>
 
@@ -39,9 +40,9 @@
             </div>
         </div>
 
-        <div class="songs-content">
-        @foreach ($songs as $song)
-            <article class="record">
+        <div class="content-list">
+            @foreach ($songs as $song)
+                <article class="record">
                     <figure class="avatar">
                         <img src="./images/{{ $song->photo }}" alt="Photo">
                     </figure>
@@ -49,42 +50,34 @@
                         <span class="main-font">{{ $song->nombre_cancion }}</span>
 
                         <div class="actions">
-                        <a href="{{ url('songs/' . $song->id . '/edit') }}">
-                            <img src="../images/ico-edit.svg" alt="Edit" />
-                        </a>
-                        <a href="javascript:void(0);" class="delete" data-fullname="{{ $song->fullname }}">
+                            <a href="{{ url('songs/' . $song->id . '/edit') }}">
+                                <img src="../images/ico-edit.svg" alt="Edit" />
+                            </a>
+                            <a href="javascript:void(0);" class="delete" data-fullname="{{ $song->fullname }}">
                                 <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete" />
                             </a>
 
-                        <form action="{{ url('songs/' . $song->id) }}" method="post" class="delete-form">
-                            @csrf
-                            @method('delete')
-                        </form>
+                            <form action="{{ url('songs/' . $song->id) }}" method="post" class="delete-form">
+                                @csrf
+                                @method('delete')
+                            </form>
 
 
-                        <a href="{{ url('songs/' . $song->id) }}">
-                            <img src="../images/btn-unfollow.svg" alt="Show" />
-                        </a>
+                            <a href="{{ url('songs/' . $song->id) }}">
+                                <img src="../images/btn-unfollow.svg" alt="Show" />
+                            </a>
 
-            
+
                         </div>
                     </aside>
-            </article>
-        @endforeach
+                </article>
+            @endforeach
         </div>
     </div>
 </section>
 <div class="paginate">
-    <a class="btn-prev" href="javascript:;">
-        <img src="./images/arrow-prev.svg" alt="prev">
-    </a>
-    <span>01/03</span>
-    <a class="btn-prev" href="javascript:;">
-        <img src="./images/arrow-next.svg" alt="next">
-    </a>
+    {{ $songs->links('layouts.paginator') }}
 </div>
-</section>
-{{ $songs->links('layouts.paginator') }}
 @endsection
 
 @section('js')
@@ -96,20 +89,8 @@
             $(this).toggleClass('active');
             $('.nav').toggleClass('active');
         });
-
-        let $togglepass = false;
-        $('section').on('click', '.ico-eye', function () {
-            const input = $(this).next();
-            const icon = $(this);
-            if (!$togglepass) {
-                input.attr('type', 'text');
-                icon.attr('src', 'images/ico-eye.svg');
-            } else {
-                input.attr('type', 'password');
-                icon.attr('src', 'images/ico-eye-off.svg');
-            }
-            $togglepass = !$togglepass;
-        });
+    });
+        
 
         // Script para manejar la eliminación de usuarios
         $('section').on('click', '.delete', function (e) {
@@ -130,12 +111,11 @@
                 _token: token
             },
                 function (data) {
-                    $('.record').html(data);
+                    $('.songs-content').html(data);
                 }
             ).fail(function (xhr, status, error) {
                 console.error('Error:', error);
             });
         });
-    });
 </script>
 @endsection

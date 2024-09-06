@@ -14,7 +14,7 @@ class SongController extends Controller
     public function index()
     {
         //$users = song::all();
-        $songs = song::paginate(20);
+        $songs = song::paginate(3);
         return view('songs.index')->with('songs', $songs);
     }
 
@@ -53,10 +53,15 @@ class SongController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(song $song)
+    public function show(Song $song)
     {
         return view('songs.show')->with('song', $song);
     }
+
+    
+
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -102,10 +107,17 @@ class SongController extends Controller
         
         }
     }
+
     public function search(Request $request){
-        $songs = Song::names($request->q)->paginate(20);
+        $songs = song::names($request->q)->paginate(3);
         return view('songs.search')->with('songs', $songs);
     }
+
+
+
+
+
+  
 
     public function pdf() {
         $songs = Song::all();

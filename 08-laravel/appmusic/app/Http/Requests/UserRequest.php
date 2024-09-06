@@ -39,7 +39,7 @@ class UserRequest extends FormRequest
                 'photo' => ['required', 'image'],
                 'phone' => ['required'],
                 'email' => ['required', 'string', 'lowercase', 'email', 'unique:'.User::class],
-                'password' => ['required', 'confirmed']
+                'password' => ['required']
             ];
         }
     }

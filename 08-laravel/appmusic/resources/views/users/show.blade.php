@@ -4,8 +4,8 @@
 
 @section('content')
 <header>
-    <a href="{{ url('dashboard') }}" class="btn-back">
-        <img src="images/btn-back.svg" alt="Back">
+    <a href="{{ url('users') }}" class="btn-back">
+        <img src="{{ asset("images/btn-back.svg" ) }}" alt="Back">
     </a>
     <img src="images/My-Profile.svg" alt="">
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
@@ -18,32 +18,37 @@
 @include('menuburguer')
 <section>
     <figure class="avatar">
-        <img src="{{asset('images') . '/' . Auth::user()->photo}}" alt="Photo">
+        <img src="{{asset('images') . '/' . $user->photo}}" alt="Photo">
 
 
     </figure>
-    <h2>{{Auth::user()->fullname}}</h2>
+    <h2>{{$user->fullname}}</h2>
     <span class="email">
-        {{Auth::user()->email}}
+        {{$user->email}}
     </span>
 
     <div class="grid">
         <span class="icono">
-            <img class="icono" src="images/documentos.png" alt="Documento">
-            {{Auth::user()->document}}
+            <img class="icono" src="{{ asset("images/documentos.png" ) }}" alt="Documento">
+            {{$user->document}}
         </span>
         <span class="icono">
-            <img class="icono" src="images/direccion.png" alt="Address">
+            <img class="icono" src="{{ asset("images/direccion.png")}}" alt="Address">
             N/A
         </span>
         <span class="icono">
-            <img class="icono" src="images/phone-number.png" alt="Phone Number">
-            {{Auth::user()->phone}}
+            <img class="icono" src="{{asset("images/phone-number.png") }}" alt="Phone Number">
+            {{$user->phone}}
         </span>
 
         <span class="icono">
-            <img class="icono" src="images/birth-date.png" alt="Birth Date">
-            {{Auth::user()->birthdate }}
+            <img class="icono" src="{{asset("images/birth-date.png") }}" alt="Birth Date">
+            {{$user->birthdate }}
+
+        </span>
+        <span class="icono">
+            <img class="icono" src="{{asset("images/genero.png") }}" alt="genero">
+            {{$user->genero }}
 
         </span>
 

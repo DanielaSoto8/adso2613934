@@ -15,11 +15,15 @@ class UserController extends Controller
      * Display a listing of the resource.
      */
     public function index()
+
     {
-        //$users = User::all();
-        $users = User::paginate(20);
+        $users = User::paginate(5);
         return view('users.index')->with('users', $users);
+      
     }
+
+     
+    
 
     /**
      * Show the form for creating a new resource.
@@ -34,27 +38,30 @@ class UserController extends Controller
      */
     public function store(UserRequest $request)
     {
-
+        //
         if($request->hasFile('photo')) {
             $photo =time() . '.'.$request->photo->extension();
             $request->photo->move(public_path('images'), $photo);
         }
 
         $user = new User;
-            $user = new User;
-            $user->document = $request->document;
-            $user->fullname = $request->fullname;
-            $user->gender = $request->gender;
-            $user->birthdate = $request->birthdate;
-            $user->photo = $photo;
-            $user->phone = $request->phone;
-            $user->email = $request->email;
-            $user->password = bcrypt($request->password);
+        $user->document = $request->document;
+        $user->fullname = $request->fullname;
+        $user->gender = $request->gender;
+        $user->birthdate = $request->birthdate;
+        $user->photo = $photo;
+        $user->phone = $request->phone;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+       
 
         if ($user->save()) {
             return redirect('users')->with('message', 'The user: '. $user->fullname. 'was successfully added');
         }
     }
+
+    
+
 
     /**
      * Display the specified resource.

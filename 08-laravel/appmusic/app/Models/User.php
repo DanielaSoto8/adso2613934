@@ -50,14 +50,7 @@ class User extends Authenticatable
     ];
 
     //Relationship : User has many games
-    public function games() {
-        return $this->hasMany('App\Models\Game');
-    }
-
-    //Relationship : User has many collections
-    public function collections() {
-        return $this->hasMany('App\Models\Collection');
-    }
+    
 
     public function scopeNames($users, $query)
     {

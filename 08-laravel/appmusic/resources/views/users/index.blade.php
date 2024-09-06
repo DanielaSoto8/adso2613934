@@ -16,15 +16,12 @@
     </svg>
 </header>
 @include('menuburguer')
-<section class="scroll">
+<section>
 
     <div class="area">
         <div class="container">
             <input type="text" placeholder="Search..." name="qsearch" id="qsearch" class="qsearch">
             <div class="files-download">
-
-
-
                 <a href="{{ url('users/pdf') }}">
                     <img class="download" src="{{ asset('images/btn_pdf.png') }}" alt="PDF">
                 </a>
@@ -39,52 +36,38 @@
 
             </div>
         </div>
-        <div class="users-content">
-        @foreach ($users as $user)
-            <article class="record">
+        <div class="content-list">
+            @foreach ($users as $user)
+                <article class="record">
                     <figure class="avatar">
                         <img src="./images/{{ $user->photo }}" alt="Photo">
                     </figure>
                     <aside>
                         <span class="main-font">{{ $user->fullname }}</span>
-
                         <div class="actions">
-                        <a href="{{ url('users/' . $user->id . '/edit') }}">
-                            <img src="../images/ico-edit.svg" alt="Edit" />
-                        </a>
-                        <a href="javascript:void(0);" class="delete" data-fullname="{{ $user->fullname }}">
+                            <a href="{{ url('users/' . $user->id . '/edit') }}">
+                                <img src="../images/ico-edit.svg" alt="Edit" />
+                            </a>
+                            <a href="javascript:void(0);" class="delete" data-fullname="{{ $user->fullname }}">
                                 <img src="{{ asset('images/ico-delete.svg') }}" alt="Delete" />
                             </a>
-
-                        <form action="{{ url('users/' . $user->id) }}" method="post" class="delete-form">
-                            @csrf
-                            @method('delete')
-                        </form>
-
-
-                        <a href="{{ url('users/' . $user->id) }}">
-                            <img src="../images/btn-unfollow.svg" alt="Show" />
-                        </a>
-
-            
+                            <form action="{{ url('users/' . $user->id) }}" method="post" class="delete-form">
+                                @csrf
+                                @method('delete')
+                            </form>
+                            <a href="{{ url('users/' . $user->id) }}">
+                                <img src="../images/btn-unfollow.svg" alt="Show" />
+                            </a>
                         </div>
                     </aside>
-            </article>
-        @endforeach
+                </article>
+            @endforeach
         </div>
     </div>
 </section>
 <div class="paginate">
-    <a class="btn-prev" href="javascript:;">
-        <img src="./images/arrow-prev.svg" alt="prev">
-    </a>
-    <span>01/03</span>
-    <a class="btn-prev" href="javascript:;">
-        <img src="./images/arrow-next.svg" alt="next">
-    </a>
+    {{ $users->links('layouts.paginator') }}
 </div>
-</section>
-{{ $users->links('layouts.paginator') }}
 @endsection
 
 @section('js')
@@ -96,45 +79,30 @@
             $(this).toggleClass('active');
             $('.nav').toggleClass('active');
         });
+    });
+    // Script para manejar la eliminación de usuarios
+    $('section').on('click', '.delete', function (e) {
+        e.preventDefault();
+        if (confirm(`Are you sure you want to delete ${$(this).data('fullname')}?`)) {
+            $(this).siblings('form').submit();
+        }
+    });
+    $('.qsearch').on('keyup', function (e) {
+        e.preventDefault();
+        var query = $(this).val();
+        var token = $('meta[name="csrf-token"]').attr('content');
+        var model = 'users';
+        console.log(query, token);
 
-        let $togglepass = false;
-        $('section').on('click', '.ico-eye', function () {
-            const input = $(this).next();
-            const icon = $(this);
-            if (!$togglepass) {
-                input.attr('type', 'text');
-                icon.attr('src', 'images/ico-eye.svg');
-            } else {
-                input.attr('type', 'password');
-                icon.attr('src', 'images/ico-eye-off.svg');
+        $.post(model + '/search', {
+            q: query,
+            _token: token
+        },
+            function (data) {
+                $('.users-content').html(data);
             }
-            $togglepass = !$togglepass;
-        });
-
-        // Script para manejar la eliminación de usuarios
-        $('section').on('click', '.delete', function (e) {
-            e.preventDefault();
-            if (confirm(`Are you sure you want to delete ${$(this).data('fullname')}?`)) {
-                $(this).siblings('form').submit();
-            }
-        });
-        $('.qsearch').on('keyup', function (e) {
-            e.preventDefault();
-            var query = $(this).val();
-            var token = $('meta[name="csrf-token"]').attr('content');
-            var model = 'users';
-            console.log(query, token);
-
-            $.post(model + '/search', {
-                q: query,
-                _token: token
-            },
-                function (data) {
-                    $('.record').html(data);
-                }
-            ).fail(function (xhr, status, error) {
-                console.error('Error:', error);
-            });
+        ).fail(function (jqXHR, textStatus, errorThrown) {
+            console.error('Error en la solicitud: ' + textStatus, errorThrown);
         });
     });
 </script>

@@ -7,7 +7,7 @@
     <a href="{{ url('songs') }}" class="btn-back">
         <img src="{{ asset('images/btn-back.svg') }}" alt="Back">
     </a>
-    <img src="{{ asset('images/edit_user.svg') }}" alt="Edit User">
+    <img src="{{ asset('images/title-editSong.svg') }}" alt="Edit Song">
     <svg class="btn-burger" viewBox="0 0 100 100" width="80">
         <path class="line top" d="m 70,33 h -40 c 0,0 -8.5,-0.149796 -8.5,8.5 0,8.649796 8.5,8.5 8.5,8.5 h 20 v -20" />
         <path class="line middle" d="m 70,50 h -40" />
@@ -62,7 +62,7 @@
 
         <div class="form-group">
             <button type="submit">
-                <img src="{{ asset('images/updateuser.svg') }}" alt="">
+                <img src="{{ asset('images/btn-updateSong.png') }}" alt="">
             </button>
         </div>
     </form>

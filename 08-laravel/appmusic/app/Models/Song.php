@@ -22,22 +22,19 @@ class Song extends Model
         
         
     ];
-    //Relationship: Artist belongs to user
-    public function user()
-    {
-        return $this->belongsTo('app\Models\Song');
+    public function scopeNames($songs, $query)
+{
+    if (trim($query)) {
+        $songs->where(function($songs) use ($query) {
+            $songs->where('nombre_cancion', 'LIKE', "%$query%")
+                  ->orWhere('artista', 'LIKE', "%$query%");
+                 
+        })->distinct(); // Asegura que los resultados sean únicos
     }
-      //Relationship: Artist belongs to category
-    public function song()
-    {
-        return $this->belongsTo('app\Models\Song');
-    }
-      //Relationship: Artist belongs to collection
-    public function collection()
-    {
-        return $this->belongsTo('app\Models\Collection');
-    }
-
 }
+}
+
+
+
 
 

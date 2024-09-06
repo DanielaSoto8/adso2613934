@@ -46,14 +46,14 @@ class SongRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'fullname.required' => 'The: atribute is required'
+            'nombre_cancion.required' => 'The: atribute is required'
         ];
     }
 
     public function attributes(): array
     {
         return [
-            'fullname' => 'Fullname'
+            'nombre_cancion' => 'nombre_cancion'
         ];
     }
 }
