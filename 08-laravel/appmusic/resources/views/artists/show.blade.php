@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'appmusic - show-song')
-@section('class', 'show-song')
+@section('title', 'appmusic - show-user')
+@section('class', 'show-user')
 
 @section('content')
 <header>
-<a href="{{ url('songs') }}" class="btn-back">
+    <a href="{{ url('users') }}" class="btn-back">
         <img src="{{ asset("images/btn-back.svg" ) }}" alt="Back">
     </a>
     <img src="images/My-Profile.svg" alt="">
@@ -18,33 +18,39 @@
 @include('menuburguer')
 <section>
     <figure class="avatar">
-        <img src="{{asset('images') . '/' . $song->photo}}" alt="Photo">
+        <img src="{{asset('images') . '/' . $user->photo}}" alt="Photo">
 
 
     </figure>
-
-    <span class="nombre_cancion">
-        {{$song->nombre_cancion}}
+    <h2>{{$user->fullname}}</h2>
+    <span class="email">
+        {{$user->email}}
     </span>
 
-    
     <div class="grid">
-    <span class="icono">
-
-    <img class="icono" src="{{ asset("images/calendario.png" ) }}" alt="ano_publicacion">
-        {{$song->ano_publicacion}}
-    </span>
-    
-     <span class="icono">
-            <img class="icono" src="{{ asset("images/user1.png" ) }}" alt="artista">
-            {{$song->artista}}
+        <span class="icono">
+            <img class="icono" src="{{ asset("images/documentos.png" ) }}" alt="Documento">
+            {{$user->document}}
         </span>
         <span class="icono">
-            <img class="icono" src="{{ asset("images/genero.png")}}" alt="genero">
-            {{$song->genero}}
+            <img class="icono" src="{{ asset("images/direccion.png")}}" alt="Address">
+            N/A
         </span>
-        
-      
+        <span class="icono">
+            <img class="icono" src="{{asset("images/phone-number.png") }}" alt="Phone Number">
+            {{$user->phone}}
+        </span>
+
+        <span class="icono">
+            <img class="icono" src="{{asset("images/birth-date.png") }}" alt="Birth Date">
+            {{$user->birthdate }}
+
+        </span>
+        <span class="icono">
+            <img class="icono" src="{{asset("images/genero.png") }}" alt="genero">
+            {{$user->genero }}
+
+        </span>
 
     </div>
 

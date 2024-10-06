@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\ArtistController;
-use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,7 +37,9 @@ Route::middleware('auth')->group(function () {
     // Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::resources([
         'users' => UserController::class,
-        'songs' => SongController::class
+        'songs' => SongController::class,
+        'artists' => ArtistController::class,
+
     ]);
 });
 

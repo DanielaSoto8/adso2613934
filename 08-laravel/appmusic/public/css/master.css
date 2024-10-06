@@ -644,7 +644,7 @@ main.dashboard,
 main.catalogue,
 main.my-profile,
 main.users,
-main.artist,
+main.artists,
 main.songs {
     nav.nav {
         align-items: center;
@@ -836,6 +836,7 @@ main.dashboard {
 /* M Y   P R O F I L E */
 /* - - - - - - - - - - - - - - - - */
 main.show-song,
+main.show-artist,
 main.show-user,
 main.my-profile {
     header {
@@ -957,7 +958,7 @@ main.my-profile {
 /* - - - - - - - - - - - - - - - - */
 /* Artist - Song*/
 /* - - - - - - - - - - - - - - - - */
-main.artist,
+main.artists,
 main.users,
 main.songs {
     header {

@@ -46,7 +46,7 @@
             </span>
         </aside>
         <img src="{{asset('images/module_artists.svg')}} " alt ="">
-        <a class="view" href="{{url('artist')}}"> <img src="images/view.svg" alt=""></a>
+        <a class="view" href="{{url('artists')}}"> <img src="images/view.svg" alt=""></a>
     </article>
 </section>
 @endsection
