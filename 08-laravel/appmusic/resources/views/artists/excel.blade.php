@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>All Users</title>
+    <title>All Artist</title>
 </head>
 <body>
     <table>
         <tr>
 
         </tr>
-        @foreach ($users as $user)
+        @foreach ($artists as $artist)
             <tr>
-                <td>{{ $user->id }}</td>
-                <td>{{ $user->fullname }}</td>
-                <td>{{ $user->email }}</td>
-                <td>{{ $user->phone }}</td>
-                <td>{{ $user->role }}</td>
-                <td><img src="{{ public_path().'/images/'.$user->photo }}"></td>
+                <td>{{ $artist->id }}</td>
+                <td>{{ $artist->fullname }}</td>
+                <td>{{ $artist->email }}</td>
+                <td>{{ $artist->phone }}</td>
+                <td>{{ $artist->role }}</td>
+                <td><img src="{{ public_path().'/images/'.$artist->photo }}"></td>
             </tr>
         @endforeach
     </table>

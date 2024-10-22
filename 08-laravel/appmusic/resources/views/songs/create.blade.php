@@ -44,14 +44,19 @@
             <label>
                 <p class="letter1">Artista:</p>
             </label>
-            <select name="song_id">
+            
+            <select name="artist_id">
                 <option value="">select...</option>
-                @foreach (cats as cat)
-                < value="{{$cat->id}}" @if(old('song_id') = $cat->id) selected @endif </option>
-                
-                @endforeach
-                </select>
-            <input type="text" name="artista" placeholder="bunbury">
+               @foreach ($artists as $artist)
+                <option value="{{$artist->id}}" 
+                    @if(old('artist_id') ==$artist->id) 
+                        selected 
+                    @endif 
+                > {{ $artist->fullname }}
+                </option>
+               @endforeach
+            </select>
+           
         </div>
         <div class="form-group">
             <label>

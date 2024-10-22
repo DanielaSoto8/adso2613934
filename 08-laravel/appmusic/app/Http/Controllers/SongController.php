@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\SongRequest;
 use App\Models\song;
 use Illuminate\Http\Request;
+use App\Models\Artist;
 
 class SongController extends Controller
 {
@@ -23,7 +24,8 @@ class SongController extends Controller
      */
     public function create()
     {
-        return view('songs.create');
+        $artists = Artist::all();
+        return view('songs.create',['artists' => $artists]);
     }
 
     /**
@@ -40,7 +42,7 @@ class SongController extends Controller
         $song = new Song;
         $song->ano_publicacion = $request->ano_publicacion;
         $song->nombre_cancion = $request->nombre_cancion;
-        $song->artista = $request->artista;
+        $song->artista = $request->artist_id;
         $song->genero = $request->genero;
         $song->photo = $photo;
            

@@ -3,45 +3,52 @@
 namespace App\Http\Controllers;
 
 use App\Models\Artist;
-use App\Models\Song;
 use Illuminate\Http\Request;
-
-
+use App\Http\Requests\ArtistRequest;
+use PDF;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ArtistsExport;
 
 class ArtistController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Muestra una lista de los recursos.
      */
     public function index()
     {
-        //$users = Category::all();
+        // Pagina los artistas, 20 por página
         $artists = Artist::paginate(20);
+        // Retorna la vista 'artists.index' con los artistas paginados
         return view('artists.index')->with('artists', $artists);
-
-    
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Muestra el formulario para crear un nuevo recurso.
      */
     public function create()
     {
-    $cats = Song::all();
-    return view ('artists.create')->with('cats', $cats);
+        // Obtiene todos los artistas
+        $artists = Artist::all();
+        // Retorna la vista 'artists.create' con todos los artistas
+        return view('artists.create')->with('artists', $artists);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Almacena un recurso recién creado en el almacenamiento.
      */
-    public function store(Request $request)
+    public function store(ArtistRequest $request)
     {
-        if($request->hasFile('photo')) {
-            $photo =time() . '.'.$request->photo->extension();
+        // Verifica si se ha subido una foto
+        if ($request->hasFile('photo')) {
+            // Genera un nombre único para la foto y la mueve a la carpeta 'images'
+            $photo = time() . '.' . $request->photo->extension();
             $request->photo->move(public_path('images'), $photo);
+        } else {
+            $photo = null;
         }
 
-        $artist = new artist;
+        // Crea un nuevo artista y asigna los valores del request
+        $artist = new Artist;
         $artist->document = $request->document;
         $artist->fullname = $request->fullname;
         $artist->gender = $request->gender;
@@ -50,77 +57,101 @@ class ArtistController extends Controller
         $artist->phone = $request->phone;
         $artist->email = $request->email;
         $artist->password = bcrypt($request->password);
-       
 
+        // Guarda el artista y redirige con un mensaje de éxito
         if ($artist->save()) {
-            return redirect('artists')->with('message', 'The artist: '. $artist->fullname. 'was successfully added');
+            return redirect('artists')->with('message', 'The artist: ' . $artist->fullname . ' was successfully added');
         }
     }
 
     /**
-     * Display the specified resource.
+     * Muestra el recurso especificado.
      */
     public function show(Artist $artist)
     {
-        return view(view: 'artists.show')->with('artist', $artist);
+        // Retorna la vista 'artists.show' con el artista especificado
+        return view('artists.show')->with('artist', $artist);
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Muestra el formulario para editar el recurso especificado.
      */
     public function edit(Artist $artist)
     {
-        return view(view: 'artists.edit')->with('artist', $artist);
+        // Retorna la vista 'artists.edit' con el artista especificado
+        return view('artists.edit')->with('artist', $artist);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Actualiza el recurso especificado en el almacenamiento.
      */
     public function update(Request $request, Artist $artist)
     {
+        // Verifica si se ha subido una nueva foto
         if ($request->hasFile('photo')) {
-            if($request->hasFile('photo')) {
-                $photo =time() . '.'.$request->photo->extension();
-                $request->photo->move(public_path('images'), $photo);
-            }
+            // Genera un nombre único para la foto y la mueve a la carpeta 'images'
+            $photo = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('images'), $photo);
         } else {
+            // Si no se sube una nueva foto, usa la foto original
             $photo = $request->originphoto;
         }
 
-            $artist->document = $request->document;
-            $artist->fullname = $request->fullname;
-            $artist->gender = $request->gender;
-            $artist->birthdate = $request->birthdate;
-            $artist->photo = $photo;
-            $artist->phone = $request->phone;
-            $artist->email = $request->email;
+        // Asigna los valores del request al artista
+        $artist->document = $request->document;
+        $artist->fullname = $request->fullname;
+        $artist->gender = $request->gender;
+        $artist->birthdate = $request->birthdate;
+        $artist->photo = $photo;
+        $artist->phone = $request->phone;
+        $artist->email = $request->email;
 
+        // Guarda el artista y redirige con un mensaje de éxito
         if ($artist->save()) {
-            return redirect('artists')->with('message', 'The artist: '. $artist->fullname. 'was successfully updated!');
+            return redirect('artists')->with('message', 'The artist: ' . $artist->fullname . ' was successfully updated!');
         }
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Elimina el recurso especificado del almacenamiento.
      */
     public function destroy(Artist $artist)
     {
-        if($artist->delete()) {
-            return redirect('artists')->with('message', 'The artist:'. $artist->fullname . 'was successfully deleted!');
+        // Elimina el artista y redirige con un mensaje de éxito
+        if ($artist->delete()) {
+            return redirect('artists')->with('message', 'The artist: ' . $artist->fullname . ' was successfully deleted!');
         }
     }
-    public function search(Request $request){
-        $users = Artist::names($request->q)->paginate(20);
+
+    /**
+     * Busca artistas según el término de búsqueda.
+     */
+    public function search(Request $request)
+    {
+        // Busca artistas por nombre y pagina los resultados
+        $artists = Artist::names($request->q)->paginate(20);
+        // Retorna la vista 'artists.search' con los resultados de la búsqueda
         return view('artists.search')->with('artists', $artists);
     }
 
-    public function pdf() {
-        $users = Artist::all();
+    /**
+     * Exporta la lista de artistas a un archivo PDF.
+     */
+    public function pdf()
+    {
+        // Obtiene todos los artistas
+        $artists = Artist::all();
+        // Genera un PDF con la vista 'artists.pdf' y los datos de los artistas
         $pdf = PDF::loadView('artists.pdf', compact('artists'));
+        // Descarga el PDF generado
         return $pdf->download('allartists.pdf');
     }
-    public function excel() {
-        return Excel::download(new ArtistExport, 'allartists.xlsx');
+
+    /**
+     * Exporta la lista de artistas a un archivo Excel.
+     */
+    public function excel()
+    {
+        return Excel::download(new ArtistsExport, 'allartists.xlsx');
     }
 }
-

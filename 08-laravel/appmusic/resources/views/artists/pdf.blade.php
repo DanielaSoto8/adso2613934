@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Users</title>
+    <title>All Artists</title>
 </head>
 <body>
     <table>
@@ -13,22 +13,18 @@
             <th>Gender</th>
             <th>Email</th>
             <th>Phone</th>
-            <th>Role</th>
-            <th>photo</th>
-
+            <th>Photo</th>
         </tr>
-        @foreach ($users as $user )
+        @foreach ($artists as $artist)
         <tr>
-            <td>{{ $user->id}}</td>
-            <td>{{ $user->fullname}}</td>
-            <td>{{ $user->gender}}</td>
-            <td>{{ $user->email}}</td>
-            <td>{{ $user->phone}}</td>
-            <td>{{ $user->role}}</td>
-            <td><img src="{{public_path().'/images/'.$user->photo}}" width="40px"></td>
+            <td>{{ $artist->id }}</td>
+            <td>{{ $artist->fullname }}</td>
+            <td>{{ $artist->gender }}</td>
+            <td>{{ $artist->email }}</td>
+            <td>{{ $artist->phone }}</td>
+            <td><img src="{{ public_path('images/' . $artist->photo) }}" width="40px"></td>
         </tr>
         @endforeach
     </table>
-    
 </body>
 </html>

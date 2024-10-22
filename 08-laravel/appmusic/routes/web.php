@@ -46,6 +46,7 @@ Route::middleware('auth')->group(function () {
 //search
 Route::post('users/search', [UserController::class, 'search']);
 Route::post('songs/search', [SongController::class, 'search'])->name('songs.search');
+Route::post('artists/search', [ArtistController::class, 'search'])->name('artists.search');
 
 
 //Exports
@@ -56,6 +57,12 @@ Route::get('export/users/excel', [UserController::class, 'excel']);
 
 //Route::get('songs/{song}', [SongController::class, 'show']);
 //Route::get('users/{user}', [UserController::class, 'show']);
+
+
+// Rutas para exportar artistas a PDF y Excel
+Route::get('export/artists/pdf', [ArtistController::class, 'pdf']);
+Route::get('export/artists/excel', [ArtistController::class, 'excel']);
+
 
 require __DIR__.'/auth.php';
 

@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'appmusic - show-user')
-@section('class', 'show-user')
+@section('title', 'appmusic - show-artist')
+@section('class', 'show-artist')
 
 @section('content')
 <header>
-    <a href="{{ url('users') }}" class="btn-back">
+    <a href="{{ url('artists') }}" class="btn-back">
         <img src="{{ asset("images/btn-back.svg" ) }}" alt="Back">
     </a>
     <img src="images/My-Profile.svg" alt="">
@@ -18,19 +18,19 @@
 @include('menuburguer')
 <section>
     <figure class="avatar">
-        <img src="{{asset('images') . '/' . $user->photo}}" alt="Photo">
+        <img src="{{asset('images') . '/' . $artist->photo}}" alt="Photo">
 
 
     </figure>
-    <h2>{{$user->fullname}}</h2>
+    <h2>{{$artist->fullname}}</h2>
     <span class="email">
-        {{$user->email}}
+        {{$artist->email}}
     </span>
 
     <div class="grid">
         <span class="icono">
             <img class="icono" src="{{ asset("images/documentos.png" ) }}" alt="Documento">
-            {{$user->document}}
+            {{$artist->document}}
         </span>
         <span class="icono">
             <img class="icono" src="{{ asset("images/direccion.png")}}" alt="Address">
@@ -38,17 +38,17 @@
         </span>
         <span class="icono">
             <img class="icono" src="{{asset("images/phone-number.png") }}" alt="Phone Number">
-            {{$user->phone}}
+            {{$artist->phone}}
         </span>
 
         <span class="icono">
             <img class="icono" src="{{asset("images/birth-date.png") }}" alt="Birth Date">
-            {{$user->birthdate }}
+            {{$artist->birthdate }}
 
         </span>
         <span class="icono">
             <img class="icono" src="{{asset("images/genero.png") }}" alt="genero">
-            {{$user->genero }}
+            {{$artist->genero }}
 
         </span>
 

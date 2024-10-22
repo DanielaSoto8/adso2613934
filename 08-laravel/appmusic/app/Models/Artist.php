@@ -14,16 +14,25 @@ class Artist extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'image',
-        'manufacturer',
-        'releasedate',
-        'description',
+        'document',
+        'fullname',
+        'gender',
+        'birthdate',
+        'photo',
+        'phone',
+        'email',
         
     ];
     //Relationship: Category has many artists
-    public function artists()
+
+    public function scopeNames($artists, $query)
     {
-        return $this->hasMany('app\Models\Artist');
+        if (trim($query)) {
+            $artists->where(function($artists) use ($query) {
+                $artists->where('fullname', 'LIKE', "%$query%")
+                      ->orWhere('document', 'LIKE', "%$query%");
+                     
+            })->distinct(); // Asegura que los resultados sean únicos
+        }
     }
 }

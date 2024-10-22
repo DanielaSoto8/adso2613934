@@ -1,10 +1,10 @@
 @extends('layouts.app')
-@section('title', 'appmusic - Edit User')
+@section('title', 'appmusic - Edit Artist')
 @section('class', 'edit register')
 
 @section('content')
 <header>
-    <a href="{{ url('users') }}" class="btn-back">
+    <a href="{{ url('artists') }}" class="btn-back">
         <img src="{{ asset('images/btn-back.svg') }}" alt="Back">
     </a>
     <img src="{{ asset('images/edit_user.svg') }}" alt="Edit User">
@@ -18,7 +18,7 @@
 @include('menuburguer')
 
 <section class="scroll">
-    <form action="{{ url('users/' . $user->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ url('artists/' . $artist->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -33,50 +33,43 @@
         @endif
 
         <div class="form-group">
-            <img id="upload" class="mask" src="{{ $user->photo ? asset('images/' . $user->photo) : asset('images/default-photo.png') }}" alt="User Photo">
+            <img id="upload" class="mask" src="{{ $artist->photo ? asset('images/' . $artist->photo) : asset('images/default-photo.png') }}" alt="User Photo">
             <input id="photo" type="file" name="photo" accept="image/*" style="display: none;">
-            <input type="hidden" name="originphoto" value="{{ $user->photo }}">
+            <input type="hidden" name="originphoto" value="{{ $artist->photo }}">
             <img class="profile-photo"  src="{{ asset('images/btn_changephoto.svg') }}" alt="Back">
 
         </div>
 
         <div class="form-group">
         <p class="letter1">Document:</p>
-            <input type="number" id="document" name="document" value="{{ old('document', $user->document) }}" readonly>
+            <input type="number" id="document" name="document" value="{{ old('document', $artist->document) }}" readonly>
         </div>
 
         <div class="form-group">
         <p class="letter1">Fullname:</p>
-            <input type="text" id="fullname" name="fullname" value="{{ old('fullname', $user->fullname) }}">
+            <input type="text" id="fullname" name="fullname" value="{{ old('fullname', $artist->fullname) }}">
         </div>
 
         <div class="form-group">
         <p class="letter1">Gender:</p>
-            <input type="text" id="gender" name="gender" value="{{ old('gender', $user->gender) }}">
+            <input type="text" id="gender" name="gender" value="{{ old('gender', $artist->gender) }}">
         </div>
 
         <div class="form-group">
         <p class="letter1">Email:</p>
-            <input type="email" id="email" name="email" value="{{ old('email', $user->email) }}">
+            <input type="email" id="email" name="email" value="{{ old('email', $artist->email) }}">
         </div>
 
         <div class="form-group">
         <p class="letter1">Phone Number:</p>
-            <input type="text" id="phone" name="phone" value="{{ old('phone', $user->phone) }}">
+            <input type="text" id="phone" name="phone" value="{{ old('phone', $artist->phone) }}">
         </div>
 
         <div class="form-group">
         <p class="letter1">Birthdate:</p>
-            <input type="date" id="birthdate" name="birthdate" value="{{ old('birthdate', $user->birthdate) }}">
+            <input type="date" id="birthdate" name="birthdate" value="{{ old('birthdate', $artist->birthdate) }}">
         </div>
-
-        <div class="form-group">
-        <p class="letter1">Password:</p>
-            <img class="ico-eye" src="{{ asset('images/hide-password.png') }}" alt="Show/Hide Password">
-            <input type="password" id="password" name="password">
-        </div>
-
-        <div class="form-group">
+       <div class="form-group">
             <button type="submit">
                 <img src="{{ asset('images/updateuser.svg') }}" alt="">
             </button>

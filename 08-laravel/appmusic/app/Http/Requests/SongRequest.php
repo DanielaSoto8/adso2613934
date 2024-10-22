@@ -27,7 +27,7 @@ class SongRequest extends FormRequest
                 'id'=> 'required,'.$this->ano_publicacion,
                 'ano_publicacion' => 'required|date',
                 'nombre_cancion' => 'required|string',
-                'artista' => 'required|string',
+                'artist_id' => 'required|string',
                 'genero' => 'required|string',
                 'photo' => 'required|image',
     
@@ -36,7 +36,7 @@ class SongRequest extends FormRequest
             return [
                 'ano_publicacion' => ['required', 'date'],
                 'nombre_cancion' => ['required', 'string'],
-                'artista' => ['required', 'string'],
+                'artist_id' => ['required', 'string'],
                 'genero' => ['required', 'string'],
                 'photo' => ['required', 'image']
             ];
